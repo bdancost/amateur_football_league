@@ -37,6 +37,7 @@ const Header = () => {
       {/* Header com Nav */}
       <div className="bg-primary text-white">
         <div className="container mx-auto flex justify-between items-center">
+          {/* Logo */}
           <div className="text-2xl font-bold">
             <Link href="/">
               <Image
@@ -48,28 +49,24 @@ const Header = () => {
               />
             </Link>
           </div>
+
+          {/* Navegação */}
           <nav>
-            <ul className="flex space-x-6">
-              <li>
-                <Link href="/" className="hover:underline">
-                  Início
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:underline">
-                  Sobre
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:underline">
-                  Serviços
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:underline">
-                  Contato
-                </Link>
-              </li>
+            <ul className="flex space-x-8 text-lg uppercase font-bold">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'A Liga', path: '/liga' },
+                { name: 'Clubes', path: '/clubes' },
+                { name: 'Competições', path: '/campeonato' },
+                { name: 'Notícias', path: '/notícias' }
+              ].map((item) => (
+                <li key={item.path} className="relative group">
+                  <Link href={item.path} className="relative p-2">
+                    {item.name}
+                    <span className="absolute left-1/2 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 ease-out origin-center group-hover:w-full group-hover:left-0"></span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
