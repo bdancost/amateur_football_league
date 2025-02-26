@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
@@ -8,6 +8,17 @@ import { HiMenu, HiChevronLeft } from 'react-icons/hi' // Ícones para menu mobi
 
 const Header = () => {
   const [menuAberto, setMenuAberto] = useState(false)
+  // Fecha o menu quando a tela for maior que 1024px (lg)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMenuAberto(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <header>
@@ -41,6 +52,14 @@ const Header = () => {
       {/* Header com Nav */}
       <div className="bg-primary text-white py-4">
         <div className="container mx-auto flex justify-center items-center lg:py-4">
+          {/* Botão de Menu Hambúrguer */}
+          <button
+            className="flex items-center ml-auto text-white text-4xl lg:hidden p-5"
+            onClick={() => setMenuAberto(!menuAberto)}
+          >
+            {menuAberto ? <HiChevronLeft /> : <HiMenu />}
+          </button>
+
           {/* Logo */}
           <div className="relative lg:absolute lg:right-1/2 lg:transform lg:translate-x-40 text-2xl font-bold w-full flex justify-center items-center">
             <Link href="/">
@@ -54,13 +73,30 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Botão de Menu Hambúrguer */}
-          <button
-            className="flex items-center ml-auto text-white text-4xl lg:hidden p-5"
-            onClick={() => setMenuAberto(!menuAberto)}
+          {/* Overlay escuro apenas no fundo */}
+          <div
+            className={`fixed inset-0 transition-opacity duration-300 bg-black ${
+              menuAberto ? 'opacity-50' : 'opacity-0 pointer-events-none'
+            }`}
+            onClick={() => setMenuAberto(false)} // Fecha ao clicar no fundo escuro
+          />
+
+          {/* Menu lateral à direita */}
+          <div
+            className={`fixed top-0 right-0 h-full w-64 bg-primary text-white shadow-lg z-50 transform transition-transform duration-300 ${
+              menuAberto ? 'translate-x-0' : 'translate-x-full'
+            }`}
           >
-            {menuAberto ? <HiChevronLeft /> : <HiMenu />}
-          </button>
+            {/* Botão de fechar com seta */}
+            <button
+              className="absolute top-5 left-5 text-white text-4xl"
+              onClick={() => setMenuAberto(false)}
+            >
+              <HiChevronLeft />
+            </button>
+
+            {/* Conteúdo do menu */}
+          </div>
 
           {/* Menu Mobile (modificado) */}
           <div
@@ -120,7 +156,7 @@ const Header = () => {
 
             {/* Botão para Fechar o Menu */}
             <button
-              className="text-white text-4xl absolute top-5 right-5"
+              className="text-white text-4xl absolute top-5 right-5 cursor-pointer"
               onClick={() => setMenuAberto(false)}
             >
               <HiChevronLeft />
