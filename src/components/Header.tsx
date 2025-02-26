@@ -120,7 +120,7 @@ const Header = () => {
                   <li key={item.path}>
                     <Link
                       href={item.path}
-                      className="block p-2 hover:bg-gray-700 rounded-md"
+                      className="block p-2 hover:bg-foreground rounded-md"
                     >
                       {item.name}
                     </Link>
@@ -128,6 +128,33 @@ const Header = () => {
                 ))}
               </ul>
             </nav>
+
+            {/* Ícones na parte inferior do menu */}
+            <div className="absolute bottom-10 left-0 w-full flex flex-col items-center space-y-4">
+              <div className="flex items-center space-x-2">
+                <MdOutlineEmail size={25} />
+                <Link href="/contact" className="hover:underline">
+                  Fale Conosco
+                </Link>
+              </div>
+
+              <div className="flex space-x-6">
+                <Link
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  className="hover:text-blue-600"
+                >
+                  <FaFacebook size={30} />
+                </Link>
+                <Link
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  className="hover:text-pink-600"
+                >
+                  <FaInstagram size={30} />
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Navegação Desktop */}
