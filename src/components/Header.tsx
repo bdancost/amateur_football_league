@@ -57,7 +57,7 @@ const Header = () => {
             className="flex items-center ml-auto text-white text-4xl lg:hidden p-5"
             onClick={() => setMenuAberto(!menuAberto)}
           >
-            {menuAberto ? <HiChevronLeft /> : <HiMenu />}
+            <HiMenu />
           </button>
 
           {/* Logo */}
@@ -83,8 +83,8 @@ const Header = () => {
 
           {/* Menu lateral à direita */}
           <div
-            className={`fixed top-0 right-0 h-full w-64 bg-primary text-white shadow-lg z-50 transform transition-transform duration-300 ${
-              menuAberto ? 'translate-x-0' : 'translate-x-full'
+            className={`fixed top-0 left-0 h-full w-64 bg-primary text-white shadow-lg z-50 transform transition-transform duration-300 ${
+              menuAberto ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
             {/* Botão de fechar com seta */}
@@ -95,72 +95,39 @@ const Header = () => {
               <HiChevronLeft />
             </button>
 
-            {/* Conteúdo do menu */}
-          </div>
-
-          {/* Menu Mobile (modificado) */}
-          <div
-            className={`fixed top-0 left-0 h-full w-3/4 bg-primary text-white flex flex-col items-center transform transition-transform duration-300 ease-in-out
-            ${menuAberto ? 'translate-x-0' : '-translate-x-full'}`}
-          >
-            {/* Logo no topo do menu */}
-            <div className="w-full flex justify-center items-center p-5">
+            {/* Logo dentro do menu */}
+            <div className="flex justify-center items-center ">
               <Image
                 src="/assets/logo_liga.png"
                 alt="Logo"
                 width={300}
-                height={70}
-                className="scale-125"
+                height={100}
               />
             </div>
 
-            {/* Links do menu */}
-            <nav className="flex flex-col items-center space-y-6 mt-6">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'A Liga', path: '/liga' },
-                { name: 'TV Liga Jundiaí', path: '/tv' },
-                { name: 'Clubes', path: '/clubes' },
-                { name: 'Competições', path: '/campeonato' },
-                { name: 'Notícias', path: '/notícias' },
-                { name: 'Fale Conosco', path: '/contact' }
-              ].map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className="text-2xl uppercase font-bold"
-                  onClick={() => setMenuAberto(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            {/* Conteúdo do menu */}
+
+            <nav className="mt-4">
+              <ul className="flex flex-col space-y-4 text-lg font-bold uppercase px-4">
+                {[
+                  { name: 'Home', path: '/' },
+                  { name: 'A Liga', path: '/liga' },
+                  { name: 'TV Liga Jundiaí', path: '/tv' },
+                  { name: 'Clubes', path: '/clubes' },
+                  { name: 'Competições', path: '/campeonato' },
+                  { name: 'Notícias', path: '/notícias' }
+                ].map((item) => (
+                  <li key={item.path}>
+                    <Link
+                      href={item.path}
+                      className="block p-2 hover:bg-gray-700 rounded-md"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </nav>
-
-            {/* Ícones das Redes Sociais */}
-            <div className="flex space-x-4 mt-8">
-              <Link
-                href="https://www.facebook.com"
-                target="_blank"
-                className="hover:text-blue-600"
-              >
-                <FaFacebook size={25} />
-              </Link>
-              <Link
-                href="https://www.instagram.com"
-                target="_blank"
-                className="hover:text-pink-600"
-              >
-                <FaInstagram size={25} />
-              </Link>
-            </div>
-
-            {/* Botão para Fechar o Menu */}
-            <button
-              className="text-white text-4xl absolute top-5 right-5 cursor-pointer"
-              onClick={() => setMenuAberto(false)}
-            >
-              <HiChevronLeft />
-            </button>
           </div>
 
           {/* Navegação Desktop */}
