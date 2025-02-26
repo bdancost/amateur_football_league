@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
 import { MdOutlineEmail } from 'react-icons/md'
-import { HiMenu, HiX } from 'react-icons/hi' // Ícones para menu mobile
+import { HiMenu, HiChevronLeft } from 'react-icons/hi' // Ícones para menu mobile
 
 const Header = () => {
   const [menuAberto, setMenuAberto] = useState(false)
@@ -39,11 +39,8 @@ const Header = () => {
       </div>
 
       {/* Header com Nav */}
-      <div className="bg-primary text-white lg:py-4 py-2">
-        <div
-          className="container mx-auto flex justify-center
-         items-center lg:py-4"
-        >
+      <div className="bg-primary text-white py-4">
+        <div className="container mx-auto flex justify-center items-center lg:py-4">
           {/* Logo */}
           <div className="relative lg:absolute lg:right-1/2 lg:transform lg:translate-x-40 text-2xl font-bold w-full flex justify-center items-center">
             <Link href="/">
@@ -62,12 +59,27 @@ const Header = () => {
             className="flex items-center ml-auto text-white text-4xl lg:hidden p-5"
             onClick={() => setMenuAberto(!menuAberto)}
           >
-            {menuAberto ? <HiX /> : <HiMenu />}
+            {menuAberto ? <HiChevronLeft /> : <HiMenu />}
           </button>
 
-          {/* Menu Mobile (sem array) */}
-          {menuAberto && (
-            <div className="fixed top-0 left-0 w-full h-full bg-primary text-white flex flex-col items-center justify-center space-y-6">
+          {/* Menu Mobile (modificado) */}
+          <div
+            className={`fixed top-0 left-0 h-full w-3/4 bg-primary text-white flex flex-col items-center transform transition-transform duration-300 ease-in-out
+            ${menuAberto ? 'translate-x-0' : '-translate-x-full'}`}
+          >
+            {/* Logo no topo do menu */}
+            <div className="w-full flex justify-center items-center p-5">
+              <Image
+                src="/assets/logo_liga.png"
+                alt="Logo"
+                width={300}
+                height={70}
+                className="scale-125"
+              />
+            </div>
+
+            {/* Links do menu */}
+            <nav className="flex flex-col items-center space-y-6 mt-6">
               {[
                 { name: 'Home', path: '/' },
                 { name: 'A Liga', path: '/liga' },
@@ -76,9 +88,9 @@ const Header = () => {
                 { name: 'Competições', path: '/campeonato' },
                 { name: 'Notícias', path: '/notícias' },
                 { name: 'Fale Conosco', path: '/contact' }
-              ].map((item, index) => (
+              ].map((item) => (
                 <Link
-                  key={index}
+                  key={item.path}
                   href={item.path}
                   className="text-2xl uppercase font-bold"
                   onClick={() => setMenuAberto(false)}
@@ -86,34 +98,34 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+            </nav>
 
-              {/* Ícones das Redes Sociais */}
-              <div className="flex space-x-4 mt-4">
-                <Link
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  className="hover:text-blue-600"
-                >
-                  <FaFacebook size={25} />
-                </Link>
-                <Link
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  className="hover:text-pink-600"
-                >
-                  <FaInstagram size={25} />
-                </Link>
-              </div>
-
-              {/* Botão para Fechar o Menu */}
-              <button
-                className="text-white text-4xl absolute top-5 right-5"
-                onClick={() => setMenuAberto(false)}
+            {/* Ícones das Redes Sociais */}
+            <div className="flex space-x-4 mt-8">
+              <Link
+                href="https://www.facebook.com"
+                target="_blank"
+                className="hover:text-blue-600"
               >
-                <HiX />
-              </button>
+                <FaFacebook size={25} />
+              </Link>
+              <Link
+                href="https://www.instagram.com"
+                target="_blank"
+                className="hover:text-pink-600"
+              >
+                <FaInstagram size={25} />
+              </Link>
             </div>
-          )}
+
+            {/* Botão para Fechar o Menu */}
+            <button
+              className="text-white text-4xl absolute top-5 right-5"
+              onClick={() => setMenuAberto(false)}
+            >
+              <HiChevronLeft />
+            </button>
+          </div>
 
           {/* Navegação Desktop */}
           <div className="hidden lg:flex flex-col items-center mt-8 ml-40">
