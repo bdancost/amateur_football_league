@@ -67,7 +67,7 @@ const Header = () => {
                 src="/assets/logo_liga.png"
                 alt="Logo"
                 width={300}
-                height={70}
+                height={300}
                 className="scale-150"
               />
             </Link>
@@ -101,7 +101,7 @@ const Header = () => {
                 src="/assets/logo_liga.png"
                 alt="Logo"
                 width={300}
-                height={100}
+                height={300}
               />
             </div>
 
@@ -114,8 +114,8 @@ const Header = () => {
                   { name: 'A Liga', path: '/liga' },
                   { name: 'TV Liga Jundiaí', path: '/tv' },
                   { name: 'Clubes', path: '/clubes' },
-                  { name: 'Competições', path: '/campeonato' },
-                  { name: 'Notícias', path: '/notícias' }
+                  { name: 'Competições', path: '/competicoes' },
+                  { name: 'Notícias', path: '/noticias' }
                 ].map((item) => (
                   <li key={item.path}>
                     <Link
@@ -166,8 +166,8 @@ const Header = () => {
                   { name: 'A Liga', path: '/liga' },
                   { name: 'TV Liga Jundiaí', path: '/tv' },
                   { name: 'Clubes', path: '/clubes' },
-                  { name: 'Competições', path: '/campeonato' },
-                  { name: 'Notícias', path: '/notícias' }
+                  { name: 'Competições', path: '/competicoes' },
+                  { name: 'Notícias', path: '/noticias' }
                 ].map((item) => (
                   <li key={item.path} className="relative group">
                     <Link href={item.path} className="relative p-2">
