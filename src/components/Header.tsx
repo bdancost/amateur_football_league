@@ -20,6 +20,11 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  // Função para alternar o menu
+  const fecharMenu = () => {
+    setMenuAberto(false)
+  }
+
   return (
     <header>
       {/* Barra superior */}
@@ -121,6 +126,7 @@ const Header = () => {
                     <Link
                       href={item.path}
                       className="block p-2 hover:bg-foreground rounded-md"
+                      onClick={fecharMenu}
                     >
                       {item.name}
                     </Link>
@@ -133,7 +139,11 @@ const Header = () => {
             <div className="absolute bottom-10 left-0 w-full flex flex-col items-center space-y-4">
               <div className="flex items-center space-x-2">
                 <MdOutlineEmail size={25} />
-                <Link href="/contact" className="hover:underline">
+                <Link
+                  href="/contact"
+                  className="hover:underline"
+                  onClick={fecharMenu}
+                >
                   Fale Conosco
                 </Link>
               </div>
