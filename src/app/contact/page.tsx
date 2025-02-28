@@ -35,7 +35,7 @@ const Contact = () => {
           <label className="text-gray-700 font-semibold mb-1">Mensagem:</label>
           <textarea
             className="p-2 border border-gray-300 rounded mb-4"
-            rows="4"
+            rows={4}
             placeholder="Digite sua mensagem"
           ></textarea>
 
@@ -57,7 +57,7 @@ const Contact = () => {
           </a>
         </p>
         <p className="text-gray-700 flex justify-center items-center gap-2">
-          <FaWhatsapp size={25} className="text-green-500" /> (12) 3456-7890
+          <FaWhatsapp size={25} className="text-green-500" /> (11) 93456-7890
         </p>
       </div>
     </div>
