@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-gray-100 text-gray-800 py-6 mt-10">
       <div className="container mx-auto px-6 lg:px-20">
         {/* Linha divisória */}
-        <div className="border-t border-gray-400 my-4"></div>
+        <div className="border-t border-gray-400 my-2"></div>
 
         {/* Conteúdo do footer com flexbox para alinhar os itens na mesma linha */}
         <div className="flex justify-between items-center space-x-6">

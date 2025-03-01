@@ -57,7 +57,15 @@ const Contact = () => {
           </a>
         </p>
         <p className="text-gray-700 flex justify-center items-center gap-2">
-          <FaWhatsapp size={25} className="text-green-500" /> (11) 93456-7890
+          <a
+            href="https://wa.me/5511934567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <FaWhatsapp size={25} className="text-green-500" />
+            (11) 985214278
+          </a>
         </p>
       </div>
     </div>
