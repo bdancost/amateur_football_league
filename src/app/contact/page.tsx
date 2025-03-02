@@ -8,6 +8,7 @@ const Contact = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState('')
+  const [sucess, setSucess] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -22,8 +23,13 @@ const Contact = () => {
 
     if (response.status === 200) {
       setStatus('Mensagem enviada com sucesso!')
+      setSucess(true)
+      setName('')
+      setEmail('')
+      setMessage('')
     } else {
       setStatus('Erro ao enviar a mensagem. Tente novamente mais tarde.')
+      setSucess(false)
     }
   }
 
@@ -74,7 +80,13 @@ const Contact = () => {
             Enviar Mensagem
           </button>
         </form>
-        {status && <p className="mt-4 text-center text-gray-700">{status}</p>}
+        {status && (
+          <p
+            className={`mt-4 text-center text-lg font-semibold p-2 rounded ${sucess ? 'text-green-700 bg-green-200' : 'text-red-700 bg-red-200'}`}
+          >
+            {status}
+          </p>
+        )}
       </div>
 
       <div className="mt-8 text-center">
@@ -90,7 +102,7 @@ const Contact = () => {
         </p>
         <p className="text-gray-700 flex justify-center items-center gap-2">
           <a
-            href="https://wa.me/5511934567890"
+            href="https://wa.me/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2"
