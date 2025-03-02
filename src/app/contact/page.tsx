@@ -1,7 +1,32 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const Contact = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const response = await fetch('/api/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, message })
+    })
+
+    if (response.status === 200) {
+      setStatus('Mensagem enviada com sucesso!')
+    } else {
+      setStatus('Erro ao enviar a mensagem. Tente novamente mais tarde.')
+    }
+  }
+
   return (
     <div className="flex flex-col items-center p-6">
       <h1 className="text-4xl font-bold uppercase text-blue-900 mb-4">
@@ -17,12 +42,14 @@ const Contact = () => {
         <h2 className="text-2xl font-bold text-blue-900 mb-4">
           Envie sua mensagem
         </h2>
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="text-gray-700 font-semibold mb-1">Nome:</label>
           <input
             type="text"
             className="p-2 border border-gray-300 rounded mb-4"
             placeholder="Seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <label className="text-gray-700 font-semibold mb-1">E-mail:</label>
@@ -30,6 +57,8 @@ const Contact = () => {
             type="email"
             className="p-2 border border-gray-300 rounded mb-4"
             placeholder="Seu e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label className="text-gray-700 font-semibold mb-1">Mensagem:</label>
@@ -37,12 +66,15 @@ const Contact = () => {
             className="p-2 border border-gray-300 rounded mb-4"
             rows={4}
             placeholder="Digite sua mensagem"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
 
           <button className="bg-blue-900 text-white font-bold p-2 rounded hover:bg-blue-700 transition">
             Enviar Mensagem
           </button>
         </form>
+        {status && <p className="mt-4 text-center text-gray-700">{status}</p>}
       </div>
 
       <div className="mt-8 text-center">
