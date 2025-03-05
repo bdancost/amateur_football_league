@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import { ChevronLeft, ChevronRight } from 'lucide-react' // Ícones melhores
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -16,7 +16,6 @@ const Home: React.FC = () => {
   ]
 
   useEffect(() => {
-    // Garantir que as setas sempre apareçam
     const prevBtn = document.querySelector('.custom-prev') as HTMLElement
     const nextBtn = document.querySelector('.custom-next') as HTMLElement
 
@@ -27,10 +26,14 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <div className="container mx-auto p-8">
-      <div className="flex flex-col lg:flex-row gap-8">
+    <div className="max-w-7xl mx-auto px-6 py-8">
+      {/* ⬆️ max-w-5xl -> aumenta as margens laterais */}
+
+      <div className="flex flex-col lg:flex-row gap-10">
         {/* 🏆 Carrossel de Destaques */}
-        <div className="lg:w-2/3 w-full relative">
+        <div className="lg:w-3/5 w-full relative">
+          {/* ⬆️ lg:w-3/5 -> reduz um pouco o tamanho do carrossel */}
+
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
@@ -50,27 +53,29 @@ const Home: React.FC = () => {
                   key={index}
                   src={banner.src}
                   alt={banner.alt}
-                  width={800}
-                  height={450}
+                  width={720} // ⬅️ Diminuído de 800 para 720
+                  height={400} // ⬅️ Proporcionalmente ajustado
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* 📌 Setas personalizadas sem fundo arredondado */}
+          {/* 📌 Setas personalizadas */}
           <div className="absolute top-4 right-4 flex gap-2 z-10">
-            <button className="custom-prev p-2 bg-white/80 rounded-md shadow hover:bg-white transition flex items-center justify-center">
+            <button className="custom-prev p-2 bg-white/80 shadow rounded-md hover:bg-white transition flex items-center justify-center">
               <ChevronLeft className="w-5 h-5 text-gray-800" />
             </button>
-            <button className="custom-next p-2 bg-white/80 rounded-md shadow hover:bg-white transition flex items-center justify-center">
+            <button className="custom-next p-2 bg-white/80 shadow rounded-md hover:bg-white transition flex items-center justify-center">
               <ChevronRight className="w-5 h-5 text-gray-800" />
             </button>
           </div>
         </div>
 
         {/* 📢 Informações ao lado */}
-        <div className="lg:w-1/3 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="lg:w-2/5 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
+          {/* ⬆️ lg:w-2/5 -> reduz um pouco a largura das informações */}
+
           <h2 className="text-xl font-bold text-gray-800 mb-4">
             Últimas Notícias
           </h2>
@@ -92,7 +97,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* 🏅 Introdução */}
-      <div className="mt-8">
+      <div className="mt-10">
         <h1 className="text-3xl font-bold text-primary">
           Bem-vindo à Liga Jundiaiense
         </h1>
