@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { ChevronLeft, ChevronRight } from 'lucide-react' // Ícones melhores
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -14,18 +15,31 @@ const Home: React.FC = () => {
     { id: 2, src: '/assets/img02.jpeg', alt: 'Destaques da Liga Jundiaiense' }
   ]
 
+  useEffect(() => {
+    // Garantir que as setas sempre apareçam
+    const prevBtn = document.querySelector('.custom-prev') as HTMLElement
+    const nextBtn = document.querySelector('.custom-next') as HTMLElement
+
+    if (prevBtn && nextBtn) {
+      prevBtn.style.display = 'flex'
+      nextBtn.style.display = 'flex'
+    }
+  }, [])
+
   return (
     <div className="container mx-auto p-8">
-      {/* Flexbox: Lado a lado em telas grandes, empilhado em telas pequenas */}
       <div className="flex flex-col lg:flex-row gap-8">
         {/* 🏆 Carrossel de Destaques */}
-        <div className="lg:w-2/3 w-full">
+        <div className="lg:w-2/3 w-full relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
             slidesPerView={1}
             loop={true}
-            navigation
+            navigation={{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev'
+            }}
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             className="rounded-lg shadow-lg"
@@ -43,9 +57,19 @@ const Home: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* 📌 Setas personalizadas sem fundo arredondado */}
+          <div className="absolute top-4 right-4 flex gap-2 z-10">
+            <button className="custom-prev p-2 bg-white/80 rounded-md shadow hover:bg-white transition flex items-center justify-center">
+              <ChevronLeft className="w-5 h-5 text-gray-800" />
+            </button>
+            <button className="custom-next p-2 bg-white/80 rounded-md shadow hover:bg-white transition flex items-center justify-center">
+              <ChevronRight className="w-5 h-5 text-gray-800" />
+            </button>
+          </div>
         </div>
 
-        {/* 📢 Informações ao lado (ou abaixo em telas menores) */}
+        {/* 📢 Informações ao lado */}
         <div className="lg:w-1/3 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-bold text-gray-800 mb-4">
             Últimas Notícias
