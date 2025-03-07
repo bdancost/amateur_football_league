@@ -106,10 +106,15 @@ const Home: React.FC = () => {
         </p>
       </div>
 
+      {/* 🚀 Parceiros da Liga 2025 */}
       <div className="bg-gray-100 lg:w-3/5 w-full justify-center items-center  p-4 rounded-lg mt-5">
         <h2 className="text-xl font-bold text-gray-800 mb-2 uppercase">
           Parceiros da Liga 2025
         </h2>
+      </div>
+
+      <div>
+        <Image src="/assets/uniex.png" alt="UniEx" width={200} height={100} />
       </div>
     </div>
   )
