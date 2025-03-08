@@ -61,7 +61,9 @@ const Home: React.FC = () => {
         </div>
 
         {/* Informações ao lado */}
+
         <div className="lg:w-2/5 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
+          <div className="border-b-4 border-primary w-full mb-6"></div>
           <h2 className="text-xl font-bold text-gray-800 mb-4">
             Últimas Notícias
           </h2>
@@ -82,24 +84,14 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Introdução */}
-      <div className="mt-10 text-center">
-        <h1 className="text-3xl font-bold text-primary">
-          Bem-vindo à Liga Jundiaiense
-        </h1>
-        <p className="text-lg text-gray-700 mt-4">
-          Explore as competições, clubes e notícias do futebol amador da região.
-        </p>
-      </div>
-
       {/* Parceiros */}
       <div className="bg-gray-100 lg:w-3/5 w-full p-3 rounded-lg mt-10">
         <h2 className="text-xl font-bold text-gray-800 mb-4 uppercase">
           Parceiros da Liga 2025
         </h2>
       </div>
-      <div className="lg:w-3/5 w-full flex flex-wrap justify-center gap-6">
-        {['uniex', 'choperia', 'drogaria', 'mb_news', 'tintino_pizza'].map(
+      <div className="lg:w-3/5 w-full flex flex-wrap justify-center gap-2 mt-4">
+        {['uniex', 'choperia', 'mb_news', 'tintino_pizza', 'drogaria'].map(
           (partner) => (
             <Image
               key={partner}
