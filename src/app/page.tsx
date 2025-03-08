@@ -90,17 +90,21 @@ const Home: React.FC = () => {
           Parceiros da Liga 2025
         </h2>
       </div>
-      <div className="lg:w-3/5 w-full flex flex-wrap justify-center gap-2 mt-4">
+      <div className="lg:w-3/5 w-full grid grid-cols-3 justify-center mt-4">
         {['uniex', 'choperia', 'mb_news', 'tintino_pizza', 'drogaria'].map(
-          (partner) => (
-            <Image
+          (partner, index) => (
+            <div
               key={partner}
-              src={`/assets/${partner}.png`}
-              alt={`Logo ${partner.replace('_', ' ')}`}
-              width={350}
-              height={125}
-              className="object-contain"
-            />
+              className={`flex justify-center ${index >= 3 ? 'col-span-2' : ''}`}
+            >
+              <Image
+                src={`/assets/${partner}.png`}
+                alt={`Logo ${partner.replace('_', ' ')}`}
+                width={350}
+                height={125}
+                className="object-contain"
+              />
+            </div>
           )
         )}
       </div>
