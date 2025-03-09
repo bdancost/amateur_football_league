@@ -90,23 +90,48 @@ const Home: React.FC = () => {
           Parceiros da Liga 2025
         </h2>
       </div>
-      <div className="lg:w-3/5 w-full grid grid-cols-3 justify-center mt-4">
-        {['uniex', 'choperia', 'mb_news', 'tintino_pizza', 'drogaria'].map(
-          (partner, index) => (
-            <div
+      <div
+        className="lg:w-3/5 w-full grid grid-cols-3 gap-0 justify-items-center mt-4"
+        style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+      >
+        {['uniex', 'choperia', 'mb_news'].map((partner) => (
+          <Image
+            key={partner}
+            src={`/assets/${partner}.png`}
+            alt={`Logo ${partner.replace('_', ' ')}`}
+            width={350}
+            height={350}
+            className="object-contain"
+            style={{
+              margin: 0,
+              padding: 0,
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
+          />
+        ))}
+
+        {/* Segunda linha - Forçando 2 colunas */}
+        <div className="col-span-3 flex justify-center items-center">
+          {['tintino_pizza', 'drogaria'].map((partner) => (
+            <Image
               key={partner}
-              className={`flex justify-center ${index >= 3 ? 'col-span-2' : ''}`}
-            >
-              <Image
-                src={`/assets/${partner}.png`}
-                alt={`Logo ${partner.replace('_', ' ')}`}
-                width={350}
-                height={125}
-                className="object-contain"
-              />
-            </div>
-          )
-        )}
+              src={`/assets/${partner}.png`}
+              alt={`Logo ${partner.replace('_', ' ')}`}
+              width={350}
+              height={350}
+              className="object-contain w-full sm:w-1/2 lg:w-1/3"
+              style={{
+                margin: 0,
+                padding: 0,
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'contain'
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
