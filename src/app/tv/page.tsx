@@ -2,11 +2,19 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaYoutube, FaChevronRight } from 'react-icons/fa'
 
 const TVLigaJundiai: React.FC = () => {
   return (
     <div className="flex flex-col items-center p-6">
+      <Image
+        src="/assets/channels4_profile.jpg"
+        alt="TV Liga Jundiaí"
+        width={200}
+        height={200}
+        className="rounded-full"
+      />
       <h1 className="text-4xl font-bold text-red-600 mb-4">TV Liga Jundiaí</h1>
       <div className="border-b-4 border-yellow-500 w-1/2 mb-6"></div>
 
