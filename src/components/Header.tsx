@@ -66,7 +66,7 @@ const Header = () => {
           </button>
 
           {/* Logo */}
-          <div className="relative lg:absolute lg:right-1/2 lg:transform lg:translate-x-40 text-2xl font-bold w-full flex justify-center items-center">
+          <div className="relative lg:absolute lg:right-1/2 lg:transform lg:translate-x-40 text-2xl font-bold w-full flex justify-center items-center mt-2">
             <Link href="/">
               <Image
                 src="/assets/logo_liga.png"
