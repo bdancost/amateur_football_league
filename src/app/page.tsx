@@ -23,8 +23,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
-      {/* Carrossel de Destaques */}
+      {/* Container principal */}
       <div className="flex flex-col lg:flex-row gap-10">
+        {/* Carrossel */}
         <div className="lg:w-3/5 w-full relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -61,12 +62,22 @@ const Home: React.FC = () => {
         </div>
 
         {/* Informações ao lado */}
-
         <div className="lg:w-2/5 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
           <div className="border-b-4 border-primary w-full mb-6"></div>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">
-            Últimas Notícias
+          <h2 className="text-xl font-bold text-foreground mb-4">
+            Horário de Funcionamento
           </h2>
+          <p className="text-gray-600 text-md mb-4">
+            <b>Secretaria:</b> Terça-feira e Quinta-feira: 18h30 às 20h00
+          </p>
+          <p className="text-gray-600 text-md mb-4">
+            <b>Presidência:</b> Terça-feira e Quinta-feira: 18h30 às 19h30
+          </p>
+          <h2 className="text-xl font-bold text-foreground mb-4">Endereço</h2>
+          <p className="text-gray-600 text-md mb-4">
+            Parque Dr. Barbosa de Oliveira, 34 - Rodoviária Velha Sobre Loja -
+            Sala 02
+          </p>
           <ul className="text-gray-700 space-y-2">
             <li>⚽ Nova temporada começa em breve!</li>
             <li>🏅 Confira os destaques do último campeonato.</li>
