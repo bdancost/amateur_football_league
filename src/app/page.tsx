@@ -22,11 +22,11 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="max-w-7xl mx-auto px-2 py-8">
       {/* Container principal */}
       <div className="flex flex-col lg:flex-row gap-10">
         {/* Carrossel */}
-        <div className="lg:w-3/5 w-full relative">
+        <div className="lg:w-3/5 w-full relative gap-4">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
@@ -58,6 +58,16 @@ const Home: React.FC = () => {
             <button className="custom-next p-2 bg-white/80 shadow rounded-md hover:bg-white transition flex items-center justify-center">
               <ChevronRight className="w-5 h-5 text-gray-800" />
             </button>
+          </div>
+
+          <div className="flex justify-start mt-4">
+            <Image
+              src="/assets/img_sejamembro.png"
+              alt="Logo Seja Membro"
+              width={1200}
+              height={600}
+              className="w-full h-auto object-cover rounded-lg"
+            />
           </div>
         </div>
 
