@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -24,7 +25,7 @@ const Home: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-2 py-8">
       {/* Container principal */}
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-6">
         {/* Carrossel */}
         <div className="lg:w-3/5 w-full relative gap-4">
           <Swiper
@@ -60,14 +61,33 @@ const Home: React.FC = () => {
             </button>
           </div>
 
-          <div className="flex justify-start mt-4">
-            <Image
-              src="/assets/img_sejamembro.png"
-              alt="Logo Seja Membro"
-              width={1200}
-              height={600}
-              className="w-full h-auto object-cover rounded-lg"
-            />
+          {/* Imagem fixa - Agora ocupando toda a largura */}
+          <div className="flex w-full max-w-full gap-4">
+            <Link
+              href="/noticias"
+              className="w-[calc(50%-10px)] overflow-hidden rounded-lg"
+            >
+              <Image
+                src="/assets/img_sejamembro.png"
+                alt="Logo Seja Membro"
+                width={1080}
+                height={500}
+                className="w-full h-[400px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </Link>
+
+            <Link
+              href="/noticias"
+              className="w-[calc(50%-10px)] overflow-hidden rounded-lg"
+            >
+              <Image
+                src="/assets/img_sejamembro.png"
+                alt="Logo Seja Membro"
+                width={1080}
+                height={500}
+                className="w-full h-[400px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </Link>
           </div>
         </div>
 
