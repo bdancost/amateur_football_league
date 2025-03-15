@@ -16,6 +16,33 @@ const Home: React.FC = () => {
     { id: 2, src: '/assets/img02.jpeg', alt: 'Destaques da Liga Jundiaiense' }
   ]
 
+  const cards = [
+    {
+      id: 1,
+      src: '/assets/img_sejamembro.png',
+      alt: 'Logo Seja Membro',
+      link: '/noticias'
+    },
+    {
+      id: 2,
+      src: '/assets/img_sejamembro.png',
+      alt: 'Logo Seja Membro',
+      link: '/noticias'
+    },
+    {
+      id: 3,
+      src: '/assets/img_noticias01.jpg',
+      alt: 'Notícias Campeonato',
+      link: '/noticias'
+    },
+    {
+      id: 4,
+      src: '/assets/img_noticias02.jpg',
+      alt: 'Notícias Campeonato',
+      link: '/noticias'
+    }
+  ]
+
   useEffect(() => {
     document.querySelectorAll('.custom-prev, .custom-next').forEach((btn) => {
       ;(btn as HTMLElement).style.display = 'flex'
@@ -61,33 +88,23 @@ const Home: React.FC = () => {
             </button>
           </div>
 
-          {/* Imagem fixa - Agora ocupando toda a largura */}
-          <div className="flex w-full max-w-full gap-4">
-            <Link
-              href="/noticias"
-              className="w-[calc(50%-10px)] overflow-hidden rounded-lg"
-            >
-              <Image
-                src="/assets/img_sejamembro.png"
-                alt="Logo Seja Membro"
-                width={1080}
-                height={500}
-                className="w-full h-[400px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-              />
-            </Link>
-
-            <Link
-              href="/noticias"
-              className="w-[calc(50%-10px)] overflow-hidden rounded-lg"
-            >
-              <Image
-                src="/assets/img_sejamembro.png"
-                alt="Logo Seja Membro"
-                width={1080}
-                height={500}
-                className="w-full h-[400px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-              />
-            </Link>
+          {/* Grid de Cards - 2 por linha */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            {cards.map((card) => (
+              <Link
+                key={card.id}
+                href={card.link}
+                className="overflow-hidden rounded-lg"
+              >
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  width={1080}
+                  height={600}
+                  className="w-full aspect-video object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+                />
+              </Link>
+            ))}
           </div>
         </div>
 
