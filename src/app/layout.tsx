@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Parceiros from '@/components/Parceiros'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Liga Jundiai',
@@ -21,8 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow">{children}</main>
-        <Parceiros />
+
+        {/* Container principal */}
+        <div className="container mx-auto px-8 flex flex-col gap-8">
+          <main className="flex-grow">{children}</main>
+          <aside className="flex flex-col justify-start">
+            <Parceiros />
+          </aside>
+        </div>
         <Footer />
       </body>
     </html>
