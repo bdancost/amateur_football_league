@@ -12,23 +12,13 @@ const Parceiros = () => {
       </div>
 
       {/* Grid Responsivo */}
-      <div className="lg:w-3/5 w-full grid grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 justify-items-center mt-4 mx-auto gap-4">
-        {['uniex', 'choperia', 'mb_news'].map((partner) => (
-          <div key={partner} className="w-64 md:w-72 lg:w-80">
-            <Image
-              src={`/assets/${partner}.png`}
-              alt={`Logo ${partner.replace('_', ' ')}`}
-              width={400}
-              height={400}
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        ))}
-
-        {/* Segunda linha */}
-        <div className="col-span-3 flex flex-wrap justify-center items-center gap-6 sm:gap-8 flex-col sm:flex-row">
-          {['tintino_pizza', 'drogaria'].map((partner) => (
-            <div key={partner} className="w-64 md:w-72 lg:w-80">
+      <div className="lg:w-3/5 w-full grid grid-cols-2 md:grid-cols-3 justify-items-center mt-4 mx-auto gap-6">
+        {['uniex', 'choperia', 'mb_news', 'tintino_pizza', 'drogaria'].map(
+          (partner) => (
+            <div
+              key={partner}
+              className="w-[180px] sm:w-[220px] md:w-[260px] lg:w-96"
+            >
               <Image
                 src={`/assets/${partner}.png`}
                 alt={`Logo ${partner.replace('_', ' ')}`}
@@ -37,8 +27,8 @@ const Parceiros = () => {
                 className="w-full h-auto object-contain"
               />
             </div>
-          ))}
-        </div>
+          )
+        )}
       </div>
     </>
   )

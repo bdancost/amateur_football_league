@@ -19,13 +19,13 @@ const Home: React.FC = () => {
   const cards = [
     {
       id: 1,
-      src: '/assets/img_sejamembro.png',
+      src: '/assets/img_noticias03.jpg',
       alt: 'Logo Seja Membro',
       link: '/noticias'
     },
     {
       id: 2,
-      src: '/assets/img_sejamembro.png',
+      src: '/assets/img_noticias04.jpg',
       alt: 'Logo Seja Membro',
       link: '/noticias'
     },
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
       {/* Container principal */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Carrossel */}
-        <div className="lg:w-3/5 w-full relative gap-4">
+        <div className="lg:w-8/12 w-full relative gap-4">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Informações ao lado */}
-        <div className="lg:w-2/5 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="lg:w-4/12 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
           <div className="border-b-4 border-primary w-full mb-6"></div>
           <h2 className="text-xl font-bold text-foreground mb-4">
             Horário de Funcionamento
