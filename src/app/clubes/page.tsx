@@ -1,10 +1,16 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Clubes = () => {
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-bold text-primary">Clubes</h1>
-      <p>Bem-vindo à página de Clubes da Liga de Futebol Amador Jundiaiense.</p>
+      <Image
+        src="/assets/img_clubes.png"
+        alt="Logo Clubes"
+        width={1080}
+        height={720}
+        className="rounded-lg mx-auto"
+      />
     </div>
   )
 }
