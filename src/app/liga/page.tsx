@@ -63,7 +63,7 @@ const Liga = () => {
           praça D. Epaminondas, R. Pedro Costa, R. Emílio Winther e após várias
           mudanças, ela se efetivou na Rodoviária Velha de Taubaté.
         </p>
-        <p className="text-lg/7 text-justify text-black">
+        <p className="text-lg/7 text-justify text-black mb-6">
           Após o mandato de Benedito Ferreira, Moacir Peixoto comandou a
           entidade por quatro anos, de 1969 a 1973. Durante seu mandato houve
           uma modernização na condução dos campeonatos da Liga. Geraldo Vicente
@@ -76,7 +76,7 @@ const Liga = () => {
           com a participação de equipes do Vale do Paraíba e era organizado pela
           Liga de Futebol Norte de São Paulo.
         </p>
-        <small>
+        <small className="text-gray-600">
           Fonte: 60 anos de Futebol Amador em Taubaté - VIRGÍLIO RIBEIRO GERALDO
         </small>
       </div>
