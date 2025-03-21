@@ -44,7 +44,7 @@ const TabelaClassificacao = () => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-xl font-bold text-center mb-4">Classificação</h2>
-      <table className="w-full border-collapse border border-gray-300 text-center">
+      <table className="max-w-7xl mx-auto w-full border-collapse border border-gray-300 text-center">
         <thead className="bg-gray-100">
           <tr>
             {colunasTabela.map((coluna) => (
