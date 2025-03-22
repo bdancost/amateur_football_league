@@ -11,6 +11,8 @@ const Liga = () => {
         height={720}
         className="rounded-lg mx-auto"
       />
+
+      {/* História */}
       <div className="max-w-7xl mx-auto px-2 py-8">
         <h2 className="uppercase font-bold text-[25px] mt-14">A História</h2>
         <p className="text-lg/7 mt-4 text-justify text-black">
@@ -79,6 +81,55 @@ const Liga = () => {
         <small className="text-gray-600">
           Fonte: 60 anos de Futebol Amador em Taubaté - VIRGÍLIO RIBEIRO GERALDO
         </small>
+
+        {/* Missão, Visão e Valores */}
+        <h2 className="uppercase font-bold text-[25px] mt-14">Missão</h2>
+
+        <p className="text-lg/7 mt-4 text-justify text-black">
+          Formentar o Futebol Amador com uma ótima gestão e de excelência
+        </p>
+
+        <h2 className="uppercase font-bold text-[25px] mt-14">Visão</h2>
+
+        <p className="text-lg/7 mt-4 text-justify text-black">
+          Ser referência na realização de competições.
+        </p>
+
+        <h2 className="uppercase font-bold text-[25px] mt-14">Valores</h2>
+
+        <p className="text-lg/7 mt-4 text-justify text-black">
+          Respeito, Ética, Transparência e Inovação.
+        </p>
+
+        <h2 className="uppercase font-bold text-[25px] mt-14">
+          Política de Qualidade
+        </h2>
+        <p className="text-lg/7 mt-4 text-justify text-black">
+          A Liga Municipal de Futebol de Taubaté tem como compromissos:
+        </p>
+
+        <ul
+          role="list"
+          className="list-disc marker:text-black text-lg/7 mt-4 text-justify text-black ml-10"
+        >
+          <li>
+            Atender às necessidades dos filiados, estatutárias e regulamentares
+            aplicáveis tanto na organização das competições;
+          </li>
+          <li>
+            Disseminar as melhores práticas de Gestão, comprometendo o corpo
+            diretivo e profissional com sua aplicação, buscando a excelência em
+            seus processos;
+          </li>
+          <li>
+            Desenvolver continuamente a capacitação e profissionalização de
+            nossos colaboradores; e
+          </li>
+          <li>
+            Aprimorar constantemente a eficácia do Sistema de Gestão da
+            Qualidade por meio da melhoria dos seus processos.
+          </li>
+        </ul>
       </div>
     </div>
   )
