@@ -1,4 +1,7 @@
-import { Clock } from 'lucide-react' // Ícone de relógio
+'use client'
+
+import { useState } from 'react'
+import { Clock, Filter } from 'lucide-react'
 
 type Time = {
   nome: string
@@ -38,7 +41,7 @@ const partidas: Partida[] = [
     visitante: 'Time B',
     placarMandante: 2,
     placarVisitante: 1,
-    local: 'Estádio Municipal'
+    local: 'Estádio A'
   },
   {
     rodada: 1,
@@ -48,7 +51,7 @@ const partidas: Partida[] = [
     visitante: 'Time A',
     placarMandante: 0,
     placarVisitante: 3,
-    local: 'Arena Nacional'
+    local: 'Estádio C'
   }
 ]
 
@@ -61,71 +64,93 @@ const calcularClassificacao = (): Time[] => {
 }
 
 const TabelaClassificacao = () => {
+  const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
+
+  const partidasFiltradas = partidas.filter(
+    (partida) => partida.rodada === rodadaSelecionada
+  )
+
   const classificacao = calcularClassificacao().sort(
     (a, b) => (b.P ?? 0) - (a.P ?? 0) || (b.SG ?? 0) - (a.SG ?? 0)
   )
 
   return (
-    <div className="container mx-auto p-4">
-      {/* Tabela de Classificação */}
-      <h2 className="text-xl font-bold text-center mb-4">Classificação</h2>
-      <table className="max-w-7xl mx-auto w-full border-collapse border border-gray-300 text-center uppercase">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-4 py-2">Time</th>
-            <th className="border px-4 py-2">P</th>
-            <th className="border px-4 py-2">J</th>
-            <th className="border px-4 py-2">V</th>
-            <th className="border px-4 py-2">E</th>
-            <th className="border px-4 py-2">D</th>
-            <th className="border px-4 py-2">GP</th>
-            <th className="border px-4 py-2">GC</th>
-            <th className="border px-4 py-2">SG</th>
-          </tr>
-        </thead>
-        <tbody>
-          {classificacao.map((time, index) => (
-            <tr key={index} className="border">
-              <td className="border px-4 py-2">{time.nome}</td>
-              <td className="border px-4 py-2">{time.P}</td>
-              <td className="border px-4 py-2">{time.J}</td>
-              <td className="border px-4 py-2">{time.V}</td>
-              <td className="border px-4 py-2">{time.E}</td>
-              <td className="border px-4 py-2">{time.D}</td>
-              <td className="border px-4 py-2">{time.GP}</td>
-              <td className="border px-4 py-2">{time.GC}</td>
-              <td className="border px-4 py-2">{time.SG}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* Partidas */}
-      <h2 className="text-xl font-bold text-center mt-8 mb-4">1ª Rodada</h2>
-      {partidas.map((partida, index) => (
-        <div
-          key={index}
-          className="max-w-7xl mx-auto mb-4 p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-between"
+    <div className="flex container mx-auto p-4 space-x-8">
+      {/* Filtro à esquerda */}
+      <div className="w-1/4">
+        <h2 className="text-lg font-bold mb-2 flex items-center">
+          <Filter className="mr-2" size={18} />
+          Filtrar por Rodada
+        </h2>
+        <select
+          className="border rounded px-2 py-1 w-full"
+          value={rodadaSelecionada}
+          onChange={(e) => setRodadaSelecionada(Number(e.target.value))}
         >
-          {/* Horário à esquerda */}
-          <div className="flex items-center space-x-2 text-gray-600">
-            <Clock size={20} />
-            <span>{partida.horario}</span>
-          </div>
+          <option value={1}>1ª Rodada</option>
+          <option value={2}>2ª Rodada</option>
+          <option value={3}>3ª Rodada</option>
+        </select>
+      </div>
 
-          {/* Placar centralizado */}
-          <div className="flex justify-center items-center space-x-4 text-xl font-bold">
-            <span>{partida.mandante}</span>
-            <span className="bg-gray-300 px-3 py-1 rounded-lg">
-              {partida.placarMandante} - {partida.placarVisitante}
-            </span>
-            <span>{partida.visitante}</span>
-          </div>
+      {/* Tabela de classificação e partidas */}
+      <div className="w-3/4">
+        <h2 className="text-xl font-bold text-center mb-4">Classificação</h2>
+        <table className="w-full border-collapse border border-gray-300 text-center uppercase">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="border px-4 py-2">Time</th>
+              <th className="border px-4 py-2">P</th>
+              <th className="border px-4 py-2">J</th>
+              <th className="border px-4 py-2">V</th>
+              <th className="border px-4 py-2">E</th>
+              <th className="border px-4 py-2">D</th>
+              <th className="border px-4 py-2">GP</th>
+              <th className="border px-4 py-2">GC</th>
+              <th className="border px-4 py-2">SG</th>
+            </tr>
+          </thead>
+          <tbody>
+            {classificacao.map((time, index) => (
+              <tr key={index} className="border">
+                <td className="border px-4 py-2">{time.nome}</td>
+                <td className="border px-4 py-2">{time.P}</td>
+                <td className="border px-4 py-2">{time.J}</td>
+                <td className="border px-4 py-2">{time.V}</td>
+                <td className="border px-4 py-2">{time.E}</td>
+                <td className="border px-4 py-2">{time.D}</td>
+                <td className="border px-4 py-2">{time.GP}</td>
+                <td className="border px-4 py-2">{time.GC}</td>
+                <td className="border px-4 py-2">{time.SG}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-          {/* Local à direita */}
-          <div className="text-gray-600 text-sm">Local: {partida.local}</div>
-        </div>
-      ))}
+        {/* Partidas */}
+        <h2 className="text-xl font-bold text-center mt-8 mb-4">
+          {rodadaSelecionada}ª Rodada
+        </h2>
+        {partidasFiltradas.map((partida, index) => (
+          <div
+            key={index}
+            className="mb-4 p-4 bg-gray-100 rounded-lg shadow-md flex justify-between items-center"
+          >
+            <div className="flex items-center space-x-2">
+              <Clock size={18} />
+              <span>{partida.horario}</span>
+            </div>
+            <div className="flex items-center space-x-4 text-xl font-bold">
+              <span>{partida.mandante}</span>
+              <span className="bg-gray-300 px-3 py-1 rounded-lg">
+                {partida.placarMandante} - {partida.placarVisitante}
+              </span>
+              <span>{partida.visitante}</span>
+            </div>
+            <div className="text-gray-600">{partida.local}</div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
