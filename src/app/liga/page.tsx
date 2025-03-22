@@ -31,7 +31,7 @@ const Liga = () => {
   return (
     <div className="container mx-auto p-8 flex">
       {/* Menu lateral */}
-      <aside className="w-1/4 sticky top-20 h-full">
+      <aside className="w-1/4 sticky top-20 h-full uppercase">
         <nav className="space-y-4">
           {sections.map((section) => (
             <a
