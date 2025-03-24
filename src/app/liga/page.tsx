@@ -42,10 +42,10 @@ const Liga = () => {
           height={720}
           className="rounded-lg mx-auto"
         />
-
+        {/* Menu Lateral */}
         <div className="flex gap-8">
           <aside className="w-1/4 h-fit uppercase">
-            <nav className="space-y-2 mt-14">
+            <nav className="space-y-6 mt-14">
               {sections.map((section) => (
                 <a
                   key={section.id}
