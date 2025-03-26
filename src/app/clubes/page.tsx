@@ -11,6 +11,9 @@ const Clubes = () => {
         height={720}
         className="rounded-lg mx-auto"
       />
+      <div className="w-3/4 h-fit px-8">
+        <h2 className="uppercase font-bold text-[25px]">Primeira Divisão</h2>
+      </div>
     </div>
   )
 }
