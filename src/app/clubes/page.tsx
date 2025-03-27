@@ -16,13 +16,13 @@ const sections = [
       },
       {
         name: 'AA Parque São Luiz',
-        image: '/assets/clubes/aa-parque-sao-luiz.png'
+        image: '/assets/clubes/AA Parque São Luiz.jpeg'
       },
       {
         name: 'AA Rodoviário Cidade Jardim',
-        image: '/assets/clubes/aa-rodoviario-cidade-jardim.png'
+        image: '/assets/clubes/AA Rodoviário Cidade Jardim.jpeg'
       },
-      { name: 'AA São Gonçalo', image: '/assets/clubes/aa-sao-goncalo.png' },
+      { name: 'AA São Gonçalo', image: '/assets/clubes/AA São Gonçalo.jpeg' },
       { name: 'CA Gurilândia', image: '/assets/clubes/ca-gurilandia.png' },
       { name: 'CA Juventus', image: '/assets/clubes/ca-juventus.png' },
       {
@@ -111,11 +111,11 @@ const sections = [
     id: '03',
     title: '3° Divisão',
     clubs: [
-      { name: 'AA Vila Albina', image: '/assets/clubes/aa-vila-albina.png' },
-      { name: 'AE Cecap', image: '/assets/clubes/ae-cecap.png' },
+      { name: 'AA Vila Albina', image: '/assets/clubes/AA Vila Albina.jpg' },
+      { name: 'AE Cecap', image: '/assets/clubes/AE Cecap.jpeg' },
       {
         name: 'AE Chácara Flórida',
-        image: '/assets/clubes/ae-chacara-florida.png'
+        image: '/assets/clubes/AE Chácara Flórida.jpg'
       },
       { name: 'Baronesa FC', image: '/assets/clubes/baronesa-fc.png' },
       { name: "Brother's SC", image: '/assets/clubes/brothers-sc.png' },
