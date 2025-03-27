@@ -23,6 +23,10 @@ const sections = [
         image: '/assets/clubes/AA Rodoviário Cidade Jardim.jpeg'
       },
       { name: 'AA São Gonçalo', image: '/assets/clubes/AA São Gonçalo.jpeg' },
+      {
+        name: 'AE Vila São Geraldo',
+        image: '/assets/clubes/AE Vila São Geraldo.jpeg'
+      },
       { name: 'CA Gurilândia', image: '/assets/clubes/ca-gurilandia.png' },
       { name: 'CA Juventus', image: '/assets/clubes/ca-juventus.png' },
       {
@@ -55,18 +59,17 @@ const sections = [
       },
       {
         name: 'AA Rodoviário Cidade Jardim',
-        image: '/assets/clubes/aa-rodoviario-cidade-jardim.png'
+        image: '/assets/clubes/AA Rodoviário Cidade Jardim.jpeg'
       },
-      { name: 'AA São Gonçalo', image: '/assets/clubes/aa-sao-goncalo.png' },
       {
         name: 'AE Vila Nogueira',
-        image: '/assets/clubes/ae-vila-nogueira.png'
+        image: '/assets/clubes/AE Vila Nogueira.jpeg'
       },
       {
         name: 'Atlético Bonfim FC',
-        image: '/assets/clubes/atletico-bonfim-fc.png'
+        image: '/assets/clubes/Atlético Bonfim FC.jpeg'
       },
-      { name: 'Brooklyn FC', image: '/assets/clubes/brooklyn-fc.png' },
+      { name: 'Brooklyn FC', image: '/assets/clubes/Brooklyn FC.jpeg' },
       { name: 'CA Gurilândia', image: '/assets/clubes/ca-gurilandia.png' },
       { name: 'CAM 13 de Maio', image: '/assets/clubes/cam-13-de-maio.png' },
       {
@@ -117,9 +120,9 @@ const sections = [
         name: 'AE Chácara Flórida',
         image: '/assets/clubes/AE Chácara Flórida.jpg'
       },
-      { name: 'Baronesa FC', image: '/assets/clubes/baronesa-fc.png' },
+      { name: 'Baronesa FC', image: '/assets/clubes/Baronesa FC.jpeg' },
       { name: "Brother's SC", image: '/assets/clubes/brothers-sc.png' },
-      { name: 'Básico FC', image: '/assets/clubes/basico-fc.png' },
+      { name: 'Básico FC', image: '/assets/clubes/Básico FC.jpeg' },
       {
         name: 'CA Boca Junior Jardim América',
         image: '/assets/clubes/ca-boca-junior-jardim-america.png'
@@ -217,9 +220,9 @@ const Clubes = () => {
                   <Image
                     src={club.image}
                     alt={club.name}
-                    width={150}
-                    height={150}
-                    className="rounded-lg"
+                    width={200}
+                    height={200}
+                    className="rounded-lg border-2 border-gray-200 p-2"
                   />
                   <span className="mt-2 text-gray-800">{club.name}</span>
                 </div>
