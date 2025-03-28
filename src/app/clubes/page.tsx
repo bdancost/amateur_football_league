@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { MoreVertical } from 'lucide-react'
+import { MoreVertical, ArrowLeft } from 'lucide-react'
 
 // Dados dos clubes em cada divisão, agora com imagens para cada time
 const sections = [
@@ -171,6 +171,7 @@ const sections = [
 
 const Clubes = () => {
   const [selectedClub, setSelectedClub] = useState<string>('01') // Divisão padrão é 1° Divisão
+  const [isMobileView, setIsMobileView] = useState(false)
 
   return (
     <div className="container mx-auto p-8">
@@ -184,7 +185,7 @@ const Clubes = () => {
 
       <div className="flex items-start gap-8 mt-10">
         {/* Menu lateral fixo */}
-        <aside className="w-1/4 self-start">
+        <aside className={`w-1/4 self-start hidden md:block`}>
           <nav className="space-y-6">
             {sections.map((section) => (
               <a
@@ -212,8 +213,55 @@ const Clubes = () => {
           </nav>
         </aside>
 
+        {/* Menu principal (MOBILE) */}
+        <div className="md:hidden w-full">
+          {!isMobileView ? (
+            <div className="border-2 border-gray-400 p-4">
+              <h2 className="text-lg font-bold mb-4">
+                Selecione uma categoria
+              </h2>
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  className="block w-full text-left p-3 rounded-lg bg-gray-100 hover:bg-gray-300 mb-2 font-semibold"
+                  onClick={() => {
+                    setSelectedClub(section.id)
+                    setIsMobileView(true)
+                  }}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <button
+                onClick={() => setIsMobileView(false)}
+                className="flex items-center text-lg font-semibold mb-4"
+              >
+                <ArrowLeft size={24} className="mr-2" /> Voltar
+              </button>
+              {/* Galeria de imagens */}
+              <div className="grid grid-cols-2 gap-4">
+                {sections
+                  .find((section) => section.id === selectedClub)
+                  ?.clubs?.map((club, index) => (
+                    <Image
+                      key={index}
+                      src={club.image}
+                      alt={`Clube ${index + 1}`}
+                      width={150}
+                      height={150}
+                      className="rounded-lg mx-auto border-2 border-gray-200 p-2 transition-transform duration-300 ease-in-out hover:scale-105"
+                    />
+                  ))}
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Conteúdo principal */}
-        <div className="w-3/4">
+        <div className="w-3/4 hidden md:block">
           <h2 className="uppercase font-bold text-[25px] text-black mt-0">
             {sections.find((section) => section.id === selectedClub)?.title}
           </h2>
