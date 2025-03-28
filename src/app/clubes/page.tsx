@@ -216,20 +216,23 @@ const Clubes = () => {
         {/* Menu principal (MOBILE) */}
         <div className="md:hidden w-full">
           {!isMobileView ? (
-            <div className="border-2 border-gray-400 p-4">
-              <h2 className="text-lg font-bold mb-4">
-                Selecione uma categoria
-              </h2>
+            <div className="flex flex-col gap-4">
               {sections.map((section) => (
                 <button
                   key={section.id}
-                  className="block w-full text-left p-3 rounded-lg bg-gray-100 hover:bg-gray-300 mb-2 font-semibold"
+                  className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
                   onClick={() => {
                     setSelectedClub(section.id)
                     setIsMobileView(true)
                   }}
                 >
-                  {section.title}
+                  <div className="flex items-center">
+                    <MoreVertical
+                      className="ml-2 text-foreground cursor-pointer"
+                      size={24}
+                    />
+                    {section.title}
+                  </div>
                 </button>
               ))}
             </div>
