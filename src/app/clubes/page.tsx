@@ -105,15 +105,15 @@ const sections = [
       { name: 'Rodoviário FC', image: '/assets/clubes/Rodoviário FC.jpeg' },
       {
         name: 'SE Fonte Imaculada',
-        image: '/assets/clubes/se-fonte-imaculada.png'
+        image: '/assets/clubes/SE Fonte Imaculada.jpeg'
       },
       {
         name: 'Unidos da Vila FC',
-        image: '/assets/clubes/unidos-da-vila-fc.png'
+        image: '/assets/clubes/Unidos da Vila FC.jpeg'
       },
       {
         name: 'Vila Nossa Senhora das Graças FC',
-        image: '/assets/clubes/vila-nossa-senhora-das-gracas-fc.png'
+        image: '/assets/clubes/Vila Nossa Senhora das Graças FC.jpeg'
       }
     ]
   },
