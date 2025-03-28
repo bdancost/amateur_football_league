@@ -48,15 +48,19 @@ const sections = [
       },
       {
         name: 'SE Parque Urupês',
-        image: '/assets/clubes/se-parque-urupes.png'
+        image: '/assets/clubes/SE Parque Urupês.jpeg'
+      },
+      {
+        name: 'União Operária FC',
+        image: '/assets/clubes/União Operária FC.jpeg'
       },
       {
         name: 'Unidos Marlene Miranda FC',
-        image: '/assets/clubes/unidos-marlene-miranda-fc.png'
+        image: '/assets/clubes/Unidos Marlene Miranda FC.jpeg'
       },
       {
         name: 'Unidos São Gonçalo FC',
-        image: '/assets/clubes/unidos-sao-goncalo-fc.png'
+        image: '/assets/clubes/Unidos São Gonçalo FC.jpeg'
       }
     ]
   },
@@ -96,24 +100,16 @@ const sections = [
         image: '/assets/clubes/EC Internacional.png'
       },
       { name: 'Estoril City FC', image: '/assets/clubes/Estoril City FC.jpeg' },
-      { name: 'GE Nova América', image: '/assets/clubes/ge-nova-america.png' },
-      { name: 'Inter Zurk FC', image: '/assets/clubes/inter-zurk-fc.png' },
-      { name: 'Rodoviário FC', image: '/assets/clubes/rodoviario-fc.png' },
+      { name: 'GE Nova América', image: '/assets/clubes/GE Nova América.jpeg' },
+      { name: 'Inter Zurk FC', image: '/assets/clubes/Inter Zurk FC.jpeg' },
+      { name: 'Rodoviário FC', image: '/assets/clubes/Rodoviário FC.jpeg' },
       {
         name: 'SE Fonte Imaculada',
         image: '/assets/clubes/se-fonte-imaculada.png'
       },
       {
-        name: 'SE Parque Urupês',
-        image: '/assets/clubes/se-parque-urupes.png'
-      },
-      {
         name: 'Unidos da Vila FC',
         image: '/assets/clubes/unidos-da-vila-fc.png'
-      },
-      {
-        name: 'Unidos Marlene Miranda FC',
-        image: '/assets/clubes/unidos-marlene-miranda-fc.png'
       },
       {
         name: 'Vila Nossa Senhora das Graças FC',
@@ -150,25 +146,25 @@ const sections = [
       { name: 'EC VII de Março', image: '/assets/clubes/EC VII de Março.jpg' },
       {
         name: 'GRM Sitío Santo Antônio',
-        image: '/assets/clubes/grm-sitio-santo-antonio.png'
+        image: '/assets/clubes/GRM Sitío Santo Antônio.jpeg'
       },
       {
         name: 'Guerreiros Água Quente FC',
-        image: '/assets/clubes/guerreiros-agua-quente-fc.png'
+        image: '/assets/clubes/Guerreiros Água Quente FC.jpg'
       },
       {
         name: 'Olympique Taubaté FC',
-        image: '/assets/clubes/olympique-taubate-fc.png'
+        image: '/assets/clubes/Olympique Taubaté FC.jpeg'
       },
-      { name: 'SE Esplanada', image: '/assets/clubes/se-esplanada.png' },
+      { name: 'SE Esplanada', image: '/assets/clubes/SE Esplanada.jpg' },
       {
         name: 'SE Independência',
-        image: '/assets/clubes/se-independencia.png'
+        image: '/assets/clubes/SE Independência.jpeg'
       },
-      { name: 'Sem Noção FC', image: '/assets/clubes/sem-nocao-fc.png' },
-      { name: 'Texas FC', image: '/assets/clubes/texas-fc.png' },
-      { name: 'Três Marias FC', image: '/assets/clubes/tres-marias-fc.png' },
-      { name: 'Vila Bela EC', image: '/assets/clubes/vila-bela-ec.png' }
+      { name: 'Sem Noção FC', image: '/assets/clubes/Sem Noção FC.jpeg' },
+      { name: 'Texas FC', image: '/assets/clubes/Texas FC.jpg' },
+      { name: 'Três Marias FC', image: '/assets/clubes/Três Marias FC.jpg' },
+      { name: 'Vila Bela EC', image: '/assets/clubes/Vila Bela EC.jpeg' }
     ]
   }
 ]
