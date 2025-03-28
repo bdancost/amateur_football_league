@@ -27,14 +27,25 @@ const sections = [
         name: 'AE Vila São Geraldo',
         image: '/assets/clubes/AE Vila São Geraldo.jpeg'
       },
-      { name: 'CA Gurilândia', image: '/assets/clubes/ca-gurilandia.png' },
-      { name: 'CA Juventus', image: '/assets/clubes/ca-juventus.png' },
       {
-        name: 'EC Internacional',
-        image: '/assets/clubes/ec-internacional.png'
+        name: 'C Atlético Cecap',
+        image: '/assets/clubes/C Atlético Cecap.jpeg'
       },
-      { name: 'EC Mourisco', image: '/assets/clubes/ec-mourisco.png' },
-      { name: 'EC Água Quente', image: '/assets/clubes/ec-agua-quente.png' },
+      { name: 'CA Juventus', image: '/assets/clubes/CA Juventus.jpeg' },
+      {
+        name: 'EC Ipanema',
+        image: '/assets/clubes/EC Ipanema.jpeg'
+      },
+      { name: 'EC Mourisco', image: '/assets/clubes/EC Mourisco.jpeg' },
+      { name: 'EC Água Quente', image: '/assets/clubes/EC Água Quente.jpeg' },
+      {
+        name: 'EC Vila São José',
+        image: '/assets/clubes/EC Vila São José.jpeg'
+      },
+      {
+        name: 'EC XV de Novembro',
+        image: '/assets/clubes/EC XV de Novembro.jpeg'
+      },
       {
         name: 'SE Parque Urupês',
         image: '/assets/clubes/se-parque-urupes.png'
@@ -70,21 +81,21 @@ const sections = [
         image: '/assets/clubes/Atlético Bonfim FC.jpeg'
       },
       { name: 'Brooklyn FC', image: '/assets/clubes/Brooklyn FC.jpeg' },
-      { name: 'CA Gurilândia', image: '/assets/clubes/ca-gurilandia.png' },
-      { name: 'CAM 13 de Maio', image: '/assets/clubes/cam-13-de-maio.png' },
+      { name: 'CA Gurilândia', image: '/assets/clubes/CA Gurilândia.jpeg' },
+      { name: 'CAM 13 de Maio', image: '/assets/clubes/CAM 13 de Maio.jpeg' },
       {
         name: 'EC Belém de Taubaté',
-        image: '/assets/clubes/ec-belem-de-taubate.png'
+        image: '/assets/clubes/EC Belém de Taubaté.jpeg'
       },
       {
         name: 'EC Flamenguinho Terra Nova',
-        image: '/assets/clubes/ec-flamenguinho-terra-nova.png'
+        image: '/assets/clubes/EC Flamenguinho Terra Nova.jpeg'
       },
       {
         name: 'EC Internacional',
-        image: '/assets/clubes/ec-internacional.png'
+        image: '/assets/clubes/EC Internacional.png'
       },
-      { name: 'Estoril City FC', image: '/assets/clubes/estoril-city-fc.png' },
+      { name: 'Estoril City FC', image: '/assets/clubes/Estoril City FC.jpeg' },
       { name: 'GE Nova América', image: '/assets/clubes/ge-nova-america.png' },
       { name: 'Inter Zurk FC', image: '/assets/clubes/inter-zurk-fc.png' },
       { name: 'Rodoviário FC', image: '/assets/clubes/rodoviario-fc.png' },
@@ -121,22 +132,22 @@ const sections = [
         image: '/assets/clubes/AE Chácara Flórida.jpg'
       },
       { name: 'Baronesa FC', image: '/assets/clubes/Baronesa FC.jpeg' },
-      { name: "Brother's SC", image: '/assets/clubes/brothers-sc.png' },
+      { name: "Brother's SC", image: "/assets/clubes/Brother's SC.jpg" },
       { name: 'Básico FC', image: '/assets/clubes/Básico FC.jpeg' },
       {
         name: 'CA Boca Junior Jardim América',
-        image: '/assets/clubes/ca-boca-junior-jardim-america.png'
+        image: '/assets/clubes/CA Boca Junior Jardim América.jpeg'
       },
-      { name: 'EC Abaeté', image: '/assets/clubes/ec-abaete.png' },
+      { name: 'EC Abaeté', image: '/assets/clubes/EC Abaeté.jpg' },
       {
         name: 'EC Alto São Pedro',
-        image: '/assets/clubes/ec-alto-sao-pedro.png'
+        image: '/assets/clubes/EC Alto São Pedro.jpeg'
       },
       {
         name: 'EC Esplanada Santa Terezinha',
-        image: '/assets/clubes/ec-esplanada-santa-terezinha.png'
+        image: '/assets/clubes/EC Esplanada Santa Terezinha.jpeg'
       },
-      { name: 'EC VII de Março', image: '/assets/clubes/ec-vii-de-marco.png' },
+      { name: 'EC VII de Março', image: '/assets/clubes/EC VII de Março.jpg' },
       {
         name: 'GRM Sitío Santo Antônio',
         image: '/assets/clubes/grm-sitio-santo-antonio.png'
@@ -222,7 +233,7 @@ const Clubes = () => {
                     alt={club.name}
                     width={200}
                     height={200}
-                    className="rounded-lg border-2 border-gray-200 p-2"
+                    className="rounded-lg border-2 border-gray-200 p-2 transition-transform duration-300 ease-in-out hover:scale-105"
                   />
                   <span className="mt-2 text-gray-800">{club.name}</span>
                 </div>
