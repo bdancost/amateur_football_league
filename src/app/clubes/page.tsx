@@ -8,6 +8,44 @@ import { MoreVertical, ArrowLeft } from 'lucide-react'
 const sections = [
   {
     id: '01',
+    title: 'Sub 20',
+    clubs: [
+      {
+        name: 'AA São Gonçalo',
+        image: '/assets/clubes/AA São Gonçalo.jpeg'
+      },
+      {
+        name: 'AE Cecap',
+        image: '/assets/clubes/AE Cecap.jpeg'
+      },
+      {
+        name: 'AE Vila São Geraldo',
+        image: '/assets/clubes/AE Vila São Geraldo.jpeg'
+      },
+      {
+        name: 'CA Boca Junior Jardim América',
+        image: '/assets/clubes/CA Boca Junior Jardim América.jpeg'
+      },
+      {
+        name: 'CA Juventus',
+        image: '/assets/clubes/CA Juventus.jpeg'
+      },
+      {
+        name: 'EC XV de Novembro',
+        image: '/assets/clubes/EC XV de Novembro.jpeg'
+      },
+      {
+        name: 'Rodoviário FC',
+        image: '/assets/clubes/Rodoviário FC.jpeg'
+      },
+      {
+        name: 'Unidos São Gonçalo FC',
+        image: '/assets/clubes/Unidos São Gonçalo FC.jpeg'
+      }
+    ]
+  },
+  {
+    id: '02',
     title: '1° Divisão',
     clubs: [
       {
@@ -65,7 +103,7 @@ const sections = [
     ]
   },
   {
-    id: '02',
+    id: '03',
     title: '2° Divisão',
     clubs: [
       {
@@ -118,7 +156,7 @@ const sections = [
     ]
   },
   {
-    id: '03',
+    id: '04',
     title: '3° Divisão',
     clubs: [
       { name: 'AA Vila Albina', image: '/assets/clubes/AA Vila Albina.jpg' },
@@ -170,7 +208,7 @@ const sections = [
 ]
 
 const Clubes = () => {
-  const [selectedClub, setSelectedClub] = useState<string>('01') // Divisão padrão é 1° Divisão
+  const [selectedClub, setSelectedClub] = useState<string>('02') // Divisão padrão é 1° Divisão
   const [isMobileView, setIsMobileView] = useState(false)
 
   return (
