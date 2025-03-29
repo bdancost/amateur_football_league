@@ -27,13 +27,19 @@ const Liga = () => {
         />
         {/* Menu Lateral */}
         <div className="flex gap-8">
-          <aside className="w-1/4 h-fit uppercase">
+          <aside
+            className={`w-1/4 self-start hidden md:block sticky top-20 h-fit`}
+          >
             <nav className="space-y-6 mt-14">
               {sections.map((section) => (
-                <button
+                <a
                   key={section.id}
-                  onClick={() => setActiveSection(section.id)}
-                  className={`block w-full text-left rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 ${
+                  href={`#${section.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection(section.id)
+                  }}
+                  className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
                     activeSection === section.id
                       ? 'text-foreground font-bold'
                       : 'text-gray-800'
@@ -46,7 +52,7 @@ const Liga = () => {
                     />
                     {section.title}
                   </div>
-                </button>
+                </a>
               ))}
             </nav>
           </aside>

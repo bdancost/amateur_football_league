@@ -233,7 +233,7 @@ const Clubes = () => {
                   e.preventDefault()
                   setSelectedClub(section.id)
                 }}
-                className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 ${
+                className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
                   selectedClub === section.id
                     ? 'text-foreground'
                     : 'text-gray-800'
