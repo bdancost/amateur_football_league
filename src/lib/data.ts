@@ -10,3 +10,29 @@ export const historiaData = {
   fonte:
     'Fonte: 60 anos de Futebol Amador em Taubaté - VIRGÍLIO RIBEIRO GERALDO'
 }
+
+export const missionValuesData = {
+  mission: {
+    title: 'Missão',
+    content: 'Formentar o Futebol Amador com uma ótima gestão e de excelência.'
+  },
+  vision: {
+    title: 'Visão',
+    content: 'Ser referência na realização de competições.'
+  },
+  values: {
+    title: 'Valores',
+    content: 'Respeito, Ética, Transparência e Inovação.'
+  },
+  qualityPolicy: {
+    title: 'Política de Qualidade',
+    description:
+      'A Liga Municipal de Futebol de Taubaté tem como compromissos:',
+    list: [
+      'Atender às necessidades dos filiados, estatutárias e regulamentares aplicáveis tanto na organização das competições.',
+      'Disseminar as melhores práticas de Gestão, comprometendo o corpo diretivo e profissional.',
+      'Desenvolver continuamente a capacitação e profissionalização de nossos colaboradores.',
+      'Aprimorar constantemente a eficácia do Sistema de Gestão da Qualidade.'
+    ]
+  }
+}

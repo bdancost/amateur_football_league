@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { MoreVertical } from 'lucide-react'
-import { historiaData } from '@/lib/data'
+import { historiaData, missionValuesData } from '@/lib/data'
 
 const sections = [
   { id: '01', title: 'História' },
@@ -79,52 +79,42 @@ const Liga = () => {
             )}
             {activeSection === '02' && (
               <section className="mt-14">
-                <h2 className="uppercase font-bold text-[25px]">Missão</h2>
+                <h2 className="uppercase font-bold text-[25px]">
+                  {missionValuesData.mission.title}
+                </h2>
                 <p className="text-lg/7 mt-4 text-justify text-black">
-                  Formentar o Futebol Amador com uma ótima gestão e de
-                  excelência.
+                  {missionValuesData.mission.content}
                 </p>
 
                 <div className="mt-12">
-                  <h2 className="uppercase font-bold text-[25px]">Visão</h2>
+                  <h2 className="uppercase font-bold text-[25px]">
+                    {missionValuesData.vision.title}
+                  </h2>
                   <p className="text-lg/7 mt-4 text-justify text-black">
-                    Ser referência na realização de competições.
-                  </p>
-                </div>
-
-                <div className="mt-12">
-                  <h2 className="uppercase font-bold text-[25px]">Valores</h2>
-                  <p className="text-lg/7 mt-4 text-justify text-black">
-                    Respeito, Ética, Transparência e Inovação.
+                    {missionValuesData.vision.content}
                   </p>
                 </div>
 
                 <div className="mt-12">
                   <h2 className="uppercase font-bold text-[25px]">
-                    Política de Qualidade
+                    {missionValuesData.values.title}
                   </h2>
                   <p className="text-lg/7 mt-4 text-justify text-black">
-                    A Liga Municipal de Futebol de Taubaté tem como
-                    compromissos:
+                    {missionValuesData.values.content}
+                  </p>
+                </div>
+
+                <div className="mt-12">
+                  <h2 className="uppercase font-bold text-[25px]">
+                    {missionValuesData.qualityPolicy.title}
+                  </h2>
+                  <p className="text-lg/7 mt-4 text-justify text-black">
+                    {missionValuesData.qualityPolicy.description}
                   </p>
                   <ul className="list-disc marker:text-black text-lg/8 mt-4 text-justify text-black ml-10">
-                    <li>
-                      Atender às necessidades dos filiados, estatutárias e
-                      regulamentares aplicáveis tanto na organização das
-                      competições.
-                    </li>
-                    <li>
-                      Disseminar as melhores práticas de Gestão, comprometendo o
-                      corpo diretivo e profissional.
-                    </li>
-                    <li>
-                      Desenvolver continuamente a capacitação e
-                      profissionalização de nossos colaboradores.
-                    </li>
-                    <li>
-                      Aprimorar constantemente a eficácia do Sistema de Gestão
-                      da Qualidade.
-                    </li>
+                    {missionValuesData.qualityPolicy.list.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
                 </div>
               </section>
