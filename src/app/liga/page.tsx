@@ -5,19 +5,19 @@ import Image from 'next/image'
 import { MoreVertical } from 'lucide-react'
 
 const sections = [
-  { id: 'historia', title: 'História' },
-  { id: 'missao', title: 'Missão, Visão e Valores' }
+  { id: '01', title: 'História' },
+  { id: '02', title: 'Missão, Visão e Valores' }
 ]
 
 const Liga = () => {
-  const [activeSection, setActiveSection] = useState('historia')
+  const [activeSection, setActiveSection] = useState<string>('01')
 
   return (
     <div className="mx-auto p-8 flex justify-center">
       {/* Menu lateral */}
 
       {/* Conteúdo principal */}
-      <div className=" px-8">
+      <div className="container mx-auto px-8">
         <Image
           src="/assets/img_liga.png"
           alt="Logo Liga"
@@ -58,7 +58,7 @@ const Liga = () => {
           </aside>
           {/* Conteúdo Dinâmico */}
           <div className="w-3/4 h-fit">
-            {activeSection === 'historia' && (
+            {activeSection === '01' && (
               <section className="mt-12">
                 <h2 className="uppercase font-bold text-[25px] flex items-center">
                   A História
@@ -138,7 +138,7 @@ const Liga = () => {
                 </small>
               </section>
             )}
-            {activeSection === 'missao' && (
+            {activeSection === '02' && (
               <section className="mt-14">
                 <h2 className="uppercase font-bold text-[25px]">Missão</h2>
                 <p className="text-lg/7 mt-4 text-justify text-black">
