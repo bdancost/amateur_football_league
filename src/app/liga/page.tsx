@@ -13,48 +13,69 @@ const sections = [
 const Liga = () => {
   const [activeSection, setActiveSection] = useState<string>('01')
   const [isMobileView, setIsMobileView] = useState(false)
-  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
-  // Detecta se a tela é menor que 720px
+  // Esconder conteúdo principal no mobile quando o menu estiver aberto
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 720)
+    if (window.innerWidth < 720) {
+      document.body.style.overflow = isMobileView ? 'hidden' : 'auto'
     }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [isMobileView])
 
   return (
     <div className="mx-auto p-8 flex justify-center">
-      {/* Conteúdo principal só aparece se não for mobile ou se isMobileView for true */}
-      {!isSmallScreen || isMobileView ? (
-        <div className="container mx-auto px-8">
-          <Image
-            src="/assets/img_liga.png"
-            alt="Logo Liga"
-            width={1080}
-            height={720}
-            className="rounded-lg mx-auto"
-          />
+      {/* Container principal */}
+      <div className="container mx-auto px-8">
+        {/* Logo */}
+        <Image
+          src="/assets/img_liga.png"
+          alt="Logo Liga"
+          width={1080}
+          height={720}
+          className="rounded-lg mx-auto"
+        />
 
-          <div className="flex gap-8">
-            {/* Menu Lateral para telas maiores */}
-            <aside className={`w-1/4 self-start hidden md:block`}>
-              <nav className="space-y-6 mt-14">
+        <div className="flex gap-8">
+          {/* Menu lateral para telas grandes */}
+          <aside className="w-1/4 self-start hidden md:block">
+            <nav className="space-y-6 mt-14">
+              {sections.map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection(section.id)
+                  }}
+                  className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
+                    activeSection === section.id
+                      ? 'text-foreground font-bold'
+                      : 'text-gray-800'
+                  } hover:bg-gray-100`}
+                >
+                  <div className="flex items-center">
+                    <MoreVertical
+                      className="ml-2 text-foreground cursor-pointer"
+                      size={24}
+                    />
+                    {section.title}
+                  </div>
+                </a>
+              ))}
+            </nav>
+          </aside>
+
+          {/* Menu para Mobile */}
+          <div className="md:hidden w-full">
+            {!isMobileView ? (
+              <div className="flex flex-col gap-4">
                 {sections.map((section) => (
-                  <a
+                  <button
                     key={section.id}
-                    href={`#${section.id}`}
-                    onClick={(e) => {
-                      e.preventDefault()
+                    className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
+                    onClick={() => {
                       setActiveSection(section.id)
+                      setIsMobileView(true) // Abre o menu e esconde o conteúdo
                     }}
-                    className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
-                      activeSection === section.id
-                        ? 'text-foreground font-bold'
-                        : 'text-gray-800'
-                    } hover:bg-gray-100`}
                   >
                     <div className="flex items-center">
                       <MoreVertical
@@ -63,12 +84,24 @@ const Liga = () => {
                       />
                       {section.title}
                     </div>
-                  </a>
+                  </button>
                 ))}
-              </nav>
-            </aside>
+              </div>
+            ) : (
+              <div>
+                {/* Botão de voltar */}
+                <button
+                  onClick={() => setIsMobileView(false)}
+                  className="flex items-center text-lg font-semibold mb-4"
+                >
+                  <ArrowLeft size={24} className="mr-2" /> Voltar
+                </button>
+              </div>
+            )}
+          </div>
 
-            {/* Conteúdo Dinâmico */}
+          {/* Conteúdo Dinâmico (Esconder no Mobile se o menu estiver aberto) */}
+          {!isMobileView && (
             <div className="w-3/4 h-fit">
               {activeSection === '01' && (
                 <section className="mt-12">
@@ -88,6 +121,7 @@ const Liga = () => {
                   </small>
                 </section>
               )}
+
               {activeSection === '02' && (
                 <section className="mt-14">
                   <h2 className="uppercase font-bold text-[25px]">
@@ -133,44 +167,9 @@ const Liga = () => {
                 </section>
               )}
             </div>
-          </div>
-        </div>
-      ) : (
-        // Se for mobile e não tiver uma seção ativa, mostra apenas o menu
-        <div className="md:hidden w-full">
-          {!isMobileView ? (
-            <div className="flex flex-col gap-4">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
-                  onClick={() => {
-                    setActiveSection(section.id)
-                    setIsMobileView(true)
-                  }}
-                >
-                  <div className="flex items-center">
-                    <MoreVertical
-                      className="ml-2 text-foreground cursor-pointer"
-                      size={24}
-                    />
-                    {section.title}
-                  </div>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div>
-              <button
-                onClick={() => setIsMobileView(false)}
-                className="flex items-center text-lg font-semibold mb-4"
-              >
-                <ArrowLeft size={24} className="mr-2" /> Voltar
-              </button>
-            </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   )
 }
