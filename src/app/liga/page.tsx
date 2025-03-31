@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { MoreVertical } from 'lucide-react'
+import { MoreVertical, ArrowLeft } from 'lucide-react'
 import { historiaData, missionValuesData } from '@/lib/data'
 
 const sections = [
@@ -12,39 +12,142 @@ const sections = [
 
 const Liga = () => {
   const [activeSection, setActiveSection] = useState<string>('01')
+  const [isMobileView, setIsMobileView] = useState(false)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+  // Detecta se a tela é menor que 720px
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 720)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <div className="mx-auto p-8 flex justify-center">
-      {/* Menu lateral */}
+      {/* Conteúdo principal só aparece se não for mobile ou se isMobileView for true */}
+      {!isSmallScreen || isMobileView ? (
+        <div className="container mx-auto px-8">
+          <Image
+            src="/assets/img_liga.png"
+            alt="Logo Liga"
+            width={1080}
+            height={720}
+            className="rounded-lg mx-auto"
+          />
 
-      {/* Conteúdo principal */}
-      <div className="container mx-auto px-8">
-        <Image
-          src="/assets/img_liga.png"
-          alt="Logo Liga"
-          width={1080}
-          height={720}
-          className="rounded-lg mx-auto"
-        />
-        {/* Menu Lateral */}
-        <div className="flex gap-8">
-          <aside
-            className={`w-1/4 self-start hidden md:block sticky top-20 h-fit`}
-          >
-            <nav className="space-y-6 mt-14">
+          <div className="flex gap-8">
+            {/* Menu Lateral para telas maiores */}
+            <aside className={`w-1/4 self-start hidden md:block`}>
+              <nav className="space-y-6 mt-14">
+                {sections.map((section) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setActiveSection(section.id)
+                    }}
+                    className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
+                      activeSection === section.id
+                        ? 'text-foreground font-bold'
+                        : 'text-gray-800'
+                    } hover:bg-gray-100`}
+                  >
+                    <div className="flex items-center">
+                      <MoreVertical
+                        className="ml-2 text-foreground cursor-pointer"
+                        size={24}
+                      />
+                      {section.title}
+                    </div>
+                  </a>
+                ))}
+              </nav>
+            </aside>
+
+            {/* Conteúdo Dinâmico */}
+            <div className="w-3/4 h-fit">
+              {activeSection === '01' && (
+                <section className="mt-12">
+                  <h2 className="uppercase font-bold text-[25px] flex items-center">
+                    {historiaData.title}
+                  </h2>
+                  {historiaData.paragraphs.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-lg/7 mt-4 text-justify text-black"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                  <small className="text-gray-600 mt-10 block">
+                    {historiaData.fonte}
+                  </small>
+                </section>
+              )}
+              {activeSection === '02' && (
+                <section className="mt-14">
+                  <h2 className="uppercase font-bold text-[25px]">
+                    {missionValuesData.mission.title}
+                  </h2>
+                  <p className="text-lg/7 mt-4 text-justify text-black">
+                    {missionValuesData.mission.content}
+                  </p>
+
+                  <div className="mt-12">
+                    <h2 className="uppercase font-bold text-[25px]">
+                      {missionValuesData.vision.title}
+                    </h2>
+                    <p className="text-lg/7 mt-4 text-justify text-black">
+                      {missionValuesData.vision.content}
+                    </p>
+                  </div>
+
+                  <div className="mt-12">
+                    <h2 className="uppercase font-bold text-[25px]">
+                      {missionValuesData.values.title}
+                    </h2>
+                    <p className="text-lg/7 mt-4 text-justify text-black">
+                      {missionValuesData.values.content}
+                    </p>
+                  </div>
+
+                  <div className="mt-12">
+                    <h2 className="uppercase font-bold text-[25px]">
+                      {missionValuesData.qualityPolicy.title}
+                    </h2>
+                    <p className="text-lg/7 mt-4 text-justify text-black">
+                      {missionValuesData.qualityPolicy.description}
+                    </p>
+                    <ul className="list-disc marker:text-black text-lg/8 mt-4 text-justify text-black ml-10">
+                      {missionValuesData.qualityPolicy.list.map(
+                        (item, index) => (
+                          <li key={index}>{item}</li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </section>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Se for mobile e não tiver uma seção ativa, mostra apenas o menu
+        <div className="md:hidden w-full">
+          {!isMobileView ? (
+            <div className="flex flex-col gap-4">
               {sections.map((section) => (
-                <a
+                <button
                   key={section.id}
-                  href={`#${section.id}`}
-                  onClick={(e) => {
-                    e.preventDefault()
+                  className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
+                  onClick={() => {
                     setActiveSection(section.id)
+                    setIsMobileView(true)
                   }}
-                  className={`block rounded-lg text-md font-semibold border-b-2 pb-6 mt-4 uppercase ${
-                    activeSection === section.id
-                      ? 'text-foreground font-bold'
-                      : 'text-gray-800'
-                  } hover:bg-gray-100`}
                 >
                   <div className="flex items-center">
                     <MoreVertical
@@ -53,75 +156,21 @@ const Liga = () => {
                     />
                     {section.title}
                   </div>
-                </a>
+                </button>
               ))}
-            </nav>
-          </aside>
-          {/* Conteúdo Dinâmico */}
-          <div className="w-3/4 h-fit">
-            {activeSection === '01' && (
-              <section className="mt-12">
-                <h2 className="uppercase font-bold text-[25px] flex items-center">
-                  {historiaData.title}
-                </h2>
-                {historiaData.paragraphs.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="text-lg/7 mt-4 text-justify text-black"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-                <small className="text-gray-600 mt-10 block">
-                  {historiaData.fonte}
-                </small>
-              </section>
-            )}
-            {activeSection === '02' && (
-              <section className="mt-14">
-                <h2 className="uppercase font-bold text-[25px]">
-                  {missionValuesData.mission.title}
-                </h2>
-                <p className="text-lg/7 mt-4 text-justify text-black">
-                  {missionValuesData.mission.content}
-                </p>
-
-                <div className="mt-12">
-                  <h2 className="uppercase font-bold text-[25px]">
-                    {missionValuesData.vision.title}
-                  </h2>
-                  <p className="text-lg/7 mt-4 text-justify text-black">
-                    {missionValuesData.vision.content}
-                  </p>
-                </div>
-
-                <div className="mt-12">
-                  <h2 className="uppercase font-bold text-[25px]">
-                    {missionValuesData.values.title}
-                  </h2>
-                  <p className="text-lg/7 mt-4 text-justify text-black">
-                    {missionValuesData.values.content}
-                  </p>
-                </div>
-
-                <div className="mt-12">
-                  <h2 className="uppercase font-bold text-[25px]">
-                    {missionValuesData.qualityPolicy.title}
-                  </h2>
-                  <p className="text-lg/7 mt-4 text-justify text-black">
-                    {missionValuesData.qualityPolicy.description}
-                  </p>
-                  <ul className="list-disc marker:text-black text-lg/8 mt-4 text-justify text-black ml-10">
-                    {missionValuesData.qualityPolicy.list.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div>
+              <button
+                onClick={() => setIsMobileView(false)}
+                className="flex items-center text-lg font-semibold mb-4"
+              >
+                <ArrowLeft size={24} className="mr-2" /> Voltar
+              </button>
+            </div>
+          )}
         </div>
-      </div>
+      )}
     </div>
   )
 }
