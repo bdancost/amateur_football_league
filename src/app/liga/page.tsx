@@ -12,30 +12,29 @@ const sections = [
 ]
 
 const Liga = () => {
-  const [activeSection, setActiveSection] = useState<string | null>('01')
-  const [isMobileView, setIsMobileView] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>('01') // Começa com "História" no Desktop
+  const [isMobile, setIsMobile] = useState<boolean>(false)
 
-  // Resetar visualização ao redimensionar a tela
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setActiveSection(null) // Volta ao estado inicial ao redimensionar para tela maior
-        setIsMobileView(false) // Desativa a visualização mobile
+      const isNowMobile = window.innerWidth < 768
+      setIsMobile(isNowMobile)
+
+      if (!isNowMobile) {
+        setActiveSection('01') // Garante que no desktop sempre comece com "História"
+      } else {
+        setActiveSection(null) // No mobile, começa sem seção ativa
       }
     }
+
+    handleResize()
     window.addEventListener('resize', handleResize)
+
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Função para selecionar uma nova seção no menu mobile
   const handleMenuItemClick = (sectionId: string) => {
-    if (sectionId === activeSection) {
-      setActiveSection(null)
-      setIsMobileView(false) // Se a seção clicada for a ativa, fecha o conteúdo
-    } else {
-      setActiveSection(sectionId)
-      setIsMobileView(true) // Exibe o conteúdo da nova seção
-    }
+    setActiveSection(activeSection === sectionId ? null : sectionId)
   }
 
   return (
@@ -51,64 +50,68 @@ const Liga = () => {
         />
 
         <div className="flex gap-8">
-          {/* Menu lateral (telas grandes) */}
-          <aside className="w-1/4 self-start hidden md:block">
-            <nav className="space-y-6 mt-14">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveSection(section.id)}
-                  className={`block w-full text-left text-md font-semibold border-b-2 pb-4 mt-4 uppercase hover:bg-gray-100 ${
-                    activeSection === section.id
-                      ? 'text-foreground font-bold'
-                      : 'text-gray-800'
-                  }`}
-                >
-                  <MoreVertical className="inline-block mr-2" size={24} />
-                  {section.title}
-                </button>
-              ))}
-            </nav>
-          </aside>
-
-          {/* Menu responsivo (telas pequenas) */}
-          <div className="md:hidden w-full">
-            {!activeSection ? (
-              <div className="flex flex-col gap-4">
+          {/* Menu lateral (desktop) */}
+          {!isMobile && (
+            <aside className="w-1/4 self-start hidden md:block">
+              <nav className="space-y-6 mt-14">
                 {sections.map((section) => (
                   <button
                     key={section.id}
-                    className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
-                    onClick={() => handleMenuItemClick(section.id)} // Usando a função handleMenuItemClick
+                    onClick={() => setActiveSection(section.id)}
+                    className={`block w-full text-left text-md font-semibold border-b-2 pb-4 mt-4 uppercase hover:bg-gray-100 ${
+                      activeSection === section.id
+                        ? 'text-foreground font-bold'
+                        : 'text-gray-800'
+                    }`}
                   >
-                    <div className="flex items-center">
-                      <MoreVertical
-                        className="ml-2 text-foreground cursor-pointer"
-                        size={24}
-                      />
-                      {section.title}
-                    </div>
+                    <MoreVertical
+                      className="inline-block mr-2 text-foreground"
+                      size={24}
+                    />
+                    {section.title}
                   </button>
                 ))}
-              </div>
-            ) : (
-              <div>
-                <button
-                  onClick={() => {
-                    setActiveSection(null) // Reseta a seção ativa para "nenhuma"
-                    setIsMobileView(false) // Volta para o menu inicial
-                  }}
-                  className="flex items-center text-lg font-semibold mb-4"
-                >
-                  <ArrowLeft size={24} className="mr-2" /> Voltar
-                </button>
-                <SectionContent sectionId={activeSection} />
-              </div>
-            )}
-          </div>
+              </nav>
+            </aside>
+          )}
 
-          {/* Conteúdo principal (não aparece no mobile quando um menu está aberto) */}
-          {!isMobileView && activeSection && (
+          {/* Menu responsivo (mobile) */}
+          {isMobile && (
+            <div className="md:hidden w-full">
+              {!activeSection ? (
+                <div className="flex flex-col gap-4">
+                  {sections.map((section) => (
+                    <button
+                      key={section.id}
+                      className="block w-full rounded-lg text-black hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
+                      onClick={() => handleMenuItemClick(section.id)}
+                    >
+                      <div className="flex items-center">
+                        <MoreVertical
+                          className="ml-2 text-foreground cursor-pointer"
+                          size={24}
+                        />
+                        {section.title}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div>
+                  <button
+                    onClick={() => setActiveSection(null)}
+                    className="flex items-center text-lg font-semibold mb-4"
+                  >
+                    <ArrowLeft size={24} className="mr-2" /> Voltar
+                  </button>
+                  <SectionContent sectionId={activeSection} />
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Conteúdo principal (desktop) */}
+          {!isMobile && (
             <div className="w-3/4">
               <SectionContent sectionId={activeSection} />
             </div>
@@ -120,7 +123,7 @@ const Liga = () => {
 }
 
 // Componente para renderizar o conteúdo das seções
-const SectionContent = ({ sectionId }: { sectionId: string }) => {
+const SectionContent = ({ sectionId }: { sectionId: string | null }) => {
   const section = sections.find((s) => s.id === sectionId)
   if (!section) return null
 
@@ -128,7 +131,6 @@ const SectionContent = ({ sectionId }: { sectionId: string }) => {
     <section className="mt-12">
       <h2 className="uppercase font-bold text-[25px]">{section.title}</h2>
 
-      {/* Se for a seção "História" */}
       {'paragraphs' in section.content ? (
         <>
           {section.content.paragraphs.map(
@@ -143,7 +145,6 @@ const SectionContent = ({ sectionId }: { sectionId: string }) => {
           </small>
         </>
       ) : (
-        /* Se for a seção "Missão, Visão e Valores" */
         <>
           <h3 className="font-bold text-lg mt-4">
             {section.content.mission.title}

@@ -258,7 +258,7 @@ const Clubes = () => {
               {sections.map((section) => (
                 <button
                   key={section.id}
-                  className="block w-full rounded-lg hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
+                  className="block w-full rounded-lg text-black hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
                   onClick={() => {
                     setSelectedClub(section.id)
                     setIsMobileView(true)
