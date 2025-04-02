@@ -75,11 +75,25 @@ const TabelaClassificacao = () => {
   )
 
   return (
-    <div className="flex container mx-auto p-4 space-x-8">
+    <div className="flex-cols container mx-auto p-4 text-black">
       {/* Filtro à esquerda */}
-      <div className="w-1/4">
-        <h2 className="text-lg font-bold mb-2 flex items-center">
-          <Filter className="mr-2" size={18} />
+      <div className="w-1/4 p-12">
+        <h2 className="text-md font-bold mb-2 flex items-center uppercase">
+          <Filter className="mr-2 text-foreground" size={18} />
+          Filtrar por Temporada
+        </h2>
+        <select
+          className="border rounded px-2 py-1 w-full"
+          value={rodadaSelecionada}
+          onChange={(e) => setRodadaSelecionada(Number(e.target.value))}
+        >
+          <option value={1}>2025</option>
+          <option value={2}>2024</option>
+          <option value={3}>2023</option>
+        </select>
+
+        <h2 className="text-md font-bold mb-2 flex items-center uppercase mt-6">
+          <Filter className="mr-2 text-foreground" size={18} />
           Filtrar por Rodada
         </h2>
         <select
@@ -94,7 +108,7 @@ const TabelaClassificacao = () => {
       </div>
 
       {/* Tabela de classificação e partidas */}
-      <div className="w-3/4">
+      <div className="lg:w-full p-10 md:w-3/4">
         <h2 className="text-xl font-bold text-center mb-4">Classificação</h2>
         <table className="w-full border-collapse border border-gray-300 text-center uppercase">
           <thead className="bg-gray-100">
