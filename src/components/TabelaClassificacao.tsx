@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Clock, Filter } from 'lucide-react'
+import { Filter } from 'lucide-react'
+import PartidasRodada from './PartidasRodada'
 
 type Time = {
   nome: string
@@ -145,25 +146,7 @@ const TabelaClassificacao = () => {
         <h2 className="text-xl font-bold text-center mt-8 mb-4">
           {rodadaSelecionada}ª Rodada
         </h2>
-        {partidasFiltradas.map((partida, index) => (
-          <div
-            key={index}
-            className="mb-4 p-4 bg-gray-100 rounded-lg shadow-md flex justify-between items-center"
-          >
-            <div className="flex items-center space-x-2">
-              <Clock size={18} />
-              <span>{partida.horario}</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl font-bold">
-              <span>{partida.mandante}</span>
-              <span className="bg-gray-300 px-3 py-1 rounded-lg">
-                {partida.placarMandante} - {partida.placarVisitante}
-              </span>
-              <span>{partida.visitante}</span>
-            </div>
-            <div className="text-gray-600">{partida.local}</div>
-          </div>
-        ))}
+        <PartidasRodada partidas={partidasFiltradas} />
       </div>
     </div>
   )
