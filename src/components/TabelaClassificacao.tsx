@@ -7,6 +7,7 @@ import CampeonatoSelector from './CampeonatoSelector'
 import Image from 'next/image'
 
 type Time = {
+  id: number
   nome: string
   imagem: string
   J: number
@@ -35,6 +36,7 @@ type Partida = {
 // Dados dos times com campeonatos diferentes
 const times: Time[] = [
   {
+    id: 1,
     nome: 'AE Cecap',
     imagem: '/assets/clubes/AE CEcap.jpeg',
     J: 5,
@@ -46,6 +48,7 @@ const times: Time[] = [
     campeonato: '1° Divisão'
   },
   {
+    id: 2,
     nome: 'AA São Gonçalo',
     imagem: '/assets/clubes/AA São Gonçalo.jpeg',
     J: 5,
@@ -57,6 +60,7 @@ const times: Time[] = [
     campeonato: '1° Divisão'
   },
   {
+    id: 3,
     nome: 'AE Vila São Geraldo',
     imagem: '/assets/clubes/AE Vila São Geraldo.jpeg',
     J: 5,
@@ -167,15 +171,18 @@ const TabelaClassificacao = () => {
           <tbody>
             {classificacao.map((time, index) => (
               <tr key={index} className="border">
-                <td className="border px-4 py-2 font-bold flex justify-start items-center">
-                  <Image
-                    src={time.imagem}
-                    alt={time.nome}
-                    width={40}
-                    height={40}
-                    className="w-8 h-8 rounded-full inline-block mr-4"
-                  />
-                  {time.nome}
+                <td className="border px-4 py-2 font-bold flex justify-start items-center gap-12">
+                  {time.id}
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src={time.imagem}
+                      alt={time.nome}
+                      width={10}
+                      height={10}
+                      className="w-8 h-8 rounded-full inline-block"
+                    />
+                    {time.nome}
+                  </div>
                 </td>
                 <td className="border px-4 py-2">{time.P}</td>
                 <td className="border px-4 py-2">{time.J}</td>
