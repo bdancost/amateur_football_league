@@ -5,99 +5,8 @@ import { Filter } from 'lucide-react'
 import PartidasRodada from './PartidasRodada'
 import CampeonatoSelector from './CampeonatoSelector'
 import Image from 'next/image'
-
-type Time = {
-  id: number
-  nome: string
-  imagem: string
-  J: number
-  V: number
-  E: number
-  D: number
-  GP: number
-  GC: number
-  P?: number
-  SG?: number
-  campeonato: string
-}
-
-type Partida = {
-  rodada: number
-  data: string
-  horario: string
-  mandante: string
-  visitante: string
-  placarMandante: number
-  placarVisitante: number
-  local: string
-  campeonato: string
-}
-
-// Dados dos times com campeonatos diferentes
-const times: Time[] = [
-  {
-    id: 1,
-    nome: 'AE Cecap',
-    imagem: '/assets/clubes/AE CEcap.jpeg',
-    J: 0,
-    V: 0,
-    E: 0,
-    D: 0,
-    GP: 0,
-    GC: 0,
-    campeonato: '1° Divisão'
-  },
-  {
-    id: 2,
-    nome: 'AA São Gonçalo',
-    imagem: '/assets/clubes/AA São Gonçalo.jpeg',
-    J: 0,
-    V: 0,
-    E: 0,
-    D: 0,
-    GP: 0,
-    GC: 0,
-    campeonato: '1° Divisão'
-  },
-  {
-    id: 3,
-    nome: 'AE Vila São Geraldo',
-    imagem: '/assets/clubes/AE Vila São Geraldo.jpeg',
-    J: 0,
-    V: 0,
-    E: 0,
-    D: 0,
-    GP: 0,
-    GC: 0,
-    campeonato: '1° Divisão'
-  }
-]
-
-// Dados das partidas com campeonatos diferentes
-const partidas: Partida[] = [
-  {
-    rodada: 1,
-    data: '20/03/2025',
-    horario: '15:00',
-    mandante: 'Time A',
-    visitante: 'Time B',
-    placarMandante: 2,
-    placarVisitante: 1,
-    local: 'Estádio A',
-    campeonato: 'brasileirao'
-  },
-  {
-    rodada: 1,
-    data: '20/03/2025',
-    horario: '17:00',
-    mandante: 'Time C',
-    visitante: 'Time A',
-    placarMandante: 0,
-    placarVisitante: 3,
-    local: 'Estádio C',
-    campeonato: 'libertadores'
-  }
-]
+import { times, Time } from '@/lib/timesTabela'
+import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
   return times
@@ -198,7 +107,10 @@ const TabelaClassificacao = () => {
         </table>
 
         {/* Partidas */}
-        <PartidasRodada partidas={partidasFiltradas} />
+        <PartidasRodada
+          partidas={partidasFiltradas}
+          rodada={rodadaSelecionada}
+        />
       </div>
     </div>
   )

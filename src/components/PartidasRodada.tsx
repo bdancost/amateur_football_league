@@ -1,37 +1,49 @@
 import { Clock } from 'lucide-react'
-
-type Partida = {
-  data: string
-  horario: string
-  mandante: string
-  visitante: string
-  placarMandante: number
-  placarVisitante: number
-  local: string
-}
+import { Partida } from '@/lib/partidasTabela'
 
 type Props = {
   partidas: Partida[]
-  rodada?: number // 🔥 Torna 'rodada' opcional
+  rodada?: number
 }
 
-const PartidasRodada = ({ partidas }: Props) => {
+const PartidasRodada = ({ partidas, rodada }: Props) => {
+  if (partidas.length === 0) {
+    return (
+      <div className="mt-6 text-center text-gray-500 italic">
+        Nenhuma partida disponível para esta rodada.
+      </div>
+    )
+  }
+
   return (
-    <div>
+    <div className="mt-8 space-y-4">
+      {rodada && (
+        <h3 className="text-lg font-semibold text-center uppercase">
+          Partidas da {rodada}ª Rodada
+        </h3>
+      )}
+
       {partidas.map((partida, index) => (
-        <div key={index} className="mb-4 p-4 bg-gray-100 rounded-lg shadow-md">
-          <div className="flex items-center space-x-2 text-gray-600">
-            <Clock size={18} className="text-gray-500" />
-            <span>{partida.horario}</span>
+        <div
+          key={index}
+          className="p-4 bg-gray-100 rounded-lg shadow flex flex-col gap-1"
+        >
+          <div className="flex items-center text-sm text-gray-500 gap-2">
+            <Clock size={16} />
+            <span>
+              {partida.horario} - {partida.data}
+            </span>
           </div>
-          <div className="flex items-center space-x-4 text-xl font-bold">
+
+          <div className="flex justify-between items-center text-lg font-bold">
             <span>{partida.mandante}</span>
-            <span className="bg-gray-300 px-3 py-1 rounded-lg">
+            <span className="bg-gray-300 px-3 py-1 rounded">
               {partida.placarMandante} - {partida.placarVisitante}
             </span>
             <span>{partida.visitante}</span>
           </div>
-          <div className="text-gray-600">{partida.local}</div>
+
+          <div className="text-sm text-gray-600">{partida.local}</div>
         </div>
       ))}
     </div>
