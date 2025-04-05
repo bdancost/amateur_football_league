@@ -14,12 +14,12 @@ const CampeonatoSelector = ({
       {sections.map((campeonato) => (
         <button
           key={campeonato.id}
-          onClick={() => setCampeonatoSelecionado(campeonato.id)}
+          onClick={() => setCampeonatoSelecionado(campeonato.title)}
           className={`px-4 py-2 rounded text-white font-semibold transition mb-10
             ${
-              campeonato.id === campeonatoSelecionado
+              campeonato.title === campeonatoSelecionado
                 ? 'bg-foreground hover:bg-foreground/80'
-                : 'bg-gray-500 hover:bg-gray-600'
+                : 'bg-gray-400 hover:bg-gray-500'
             }`}
         >
           {campeonato.title}

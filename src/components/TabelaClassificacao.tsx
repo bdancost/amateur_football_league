@@ -10,7 +10,7 @@ import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
   return times
-    .filter((time) => time.campeonato === campeonato) // Filtra por campeonato
+    .filter((time) => time.campeonato === campeonato)
     .map((time) => ({
       ...time,
       P: time.V * 3 + time.E,
@@ -21,7 +21,7 @@ const calcularClassificacao = (campeonato: string): Time[] => {
 const TabelaClassificacao = () => {
   const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
   const [campeonatoSelecionado, setCampeonatoSelecionado] =
-    useState('1° Divisão') // Estado do campeonato
+    useState('1° Divisão')
 
   // Filtra as partidas de acordo com o campeonato e rodada
   const partidasFiltradas = partidas.filter(
@@ -36,34 +36,40 @@ const TabelaClassificacao = () => {
   )
 
   return (
-    <div className="flex-cols container mx-auto p-4 text-black">
-      {/* Componente de seleção de campeonato */}
+    <div className="container mx-auto p-4 text-black">
+      {/* Seleção do Campeonato */}
       <CampeonatoSelector
         campeonatoSelecionado={campeonatoSelecionado}
         setCampeonatoSelecionado={setCampeonatoSelecionado}
       />
 
       {/* Filtro de rodadas */}
-      <div className="w-1/4 p-12">
+      <div className="w-64 mb-6">
         <h2 className="text-md font-bold mb-2 flex items-center uppercase">
           <Filter className="mr-2 text-foreground" size={18} />
-          Filtrar por Rodada
+          Rodada
         </h2>
         <select
           className="border rounded px-2 py-1 w-full"
           value={rodadaSelecionada}
           onChange={(e) => setRodadaSelecionada(Number(e.target.value))}
         >
-          <option value={1}>1ª Rodada</option>
-          <option value={2}>2ª Rodada</option>
-          <option value={3}>3ª Rodada</option>
+          {[1, 2, 3].map((rodada) => (
+            <option key={rodada} value={rodada}>
+              {rodada}ª Rodada
+            </option>
+          ))}
         </select>
       </div>
 
-      {/* Tabela de classificação */}
-      <div className="lg:w-full p-10 md:w-3/4">
-        <h2 className="text-xl font-bold text-center mb-4">Classificação</h2>
-        <table className="w-full border-collapse border border-gray-300 text-center uppercase">
+      {/* Renderiza Classificação e Partidas dinamicamente */}
+      <div className="p-4">
+        <h2 className="text-xl font-bold text-center mb-4 uppercase">
+          Classificação - {campeonatoSelecionado}
+        </h2>
+
+        {/* Tabela de Classificação */}
+        <table className="w-full border-collapse border border-gray-300 text-center uppercase mb-8">
           <thead className="bg-gray-100">
             <tr>
               <th className="border px-4 py-2">Time</th>
@@ -78,20 +84,17 @@ const TabelaClassificacao = () => {
             </tr>
           </thead>
           <tbody>
-            {classificacao.map((time, index) => (
-              <tr key={index} className="border">
-                <td className="border px-4 py-2 font-bold flex justify-start items-center gap-12">
-                  {time.id}
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={time.imagem}
-                      alt={time.nome}
-                      width={10}
-                      height={10}
-                      className="w-8 h-8 rounded-full inline-block"
-                    />
-                    {time.nome}
-                  </div>
+            {classificacao.map((time) => (
+              <tr key={time.id} className="border">
+                <td className="border px-4 py-2 font-bold flex justify-start items-center gap-4">
+                  <Image
+                    src={time.imagem}
+                    alt={time.nome}
+                    width={32}
+                    height={32}
+                    className="rounded-full"
+                  />
+                  {time.nome}
                 </td>
                 <td className="border px-4 py-2">{time.P}</td>
                 <td className="border px-4 py-2">{time.J}</td>
@@ -106,7 +109,10 @@ const TabelaClassificacao = () => {
           </tbody>
         </table>
 
-        {/* Partidas */}
+        {/* Lista de Partidas da Rodada */}
+        <h3 className="text-lg font-bold mb-2 text-center">
+          Partidas da {rodadaSelecionada}ª Rodada
+        </h3>
         <PartidasRodada
           partidas={partidasFiltradas}
           rodada={rodadaSelecionada}
