@@ -5,11 +5,14 @@ import { Filter } from 'lucide-react'
 import PartidasRodada from './PartidasRodada'
 import CampeonatoSelector from './CampeonatoSelector'
 import Image from 'next/image'
-import { times, Time } from '@/lib/timesTabela'
+import { times, timesSub20, Time } from '@/lib/timesTabela'
 import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
-  return times
+  const todosTimes = [...times, ...timesSub20]
+
+  // Filtra os times de acordo com o campeonato selecionado
+  return todosTimes
     .filter((time) => time.campeonato === campeonato)
     .map((time) => ({
       ...time,
