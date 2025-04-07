@@ -9,12 +9,18 @@ import {
   times1Divisao,
   timesSub20,
   times2Divisao,
+  times3Divisao,
   Time
 } from '@/lib/timesTabela'
 import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
-  const todosTimes = [...times1Divisao, ...timesSub20, ...times2Divisao]
+  const todosTimes = [
+    ...times1Divisao,
+    ...timesSub20,
+    ...times2Divisao,
+    ...times3Divisao
+  ]
 
   // Filtra os times de acordo com o campeonato selecionado
   return todosTimes
@@ -92,9 +98,10 @@ const TabelaClassificacao = () => {
             </tr>
           </thead>
           <tbody>
-            {classificacao.map((time) => (
+            {classificacao.map((time, index) => (
               <tr key={time.id} className="border">
                 <td className="border px-4 py-2 font-bold flex justify-start items-center gap-4">
+                  <span className="w-6 text-right mr-8">{index + 1}</span>
                   <Image
                     src={time.imagem}
                     alt={time.nome}
