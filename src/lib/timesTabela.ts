@@ -112,7 +112,7 @@ export const timesSub20: Time[] = [
   }
 ]
 
-export const times: Time[] = [
+export const times1Divisao: Time[] = [
   {
     id: 1,
     nome: 'AA Parque Aeroporto',
@@ -304,5 +304,212 @@ export const times: Time[] = [
     GP: 0,
     GC: 0,
     campeonato: '1° Divisão'
+  }
+]
+
+export const times2Divisao: Time[] = [
+  {
+    id: 1,
+    nome: 'AA Jardim Jaraguá',
+    imagem: '/assets/clubes/AA Jardim Jaraguá.jpg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 2,
+    nome: 'AA Rodoviário Cidade Jardim',
+    imagem: '/assets/clubes/AA Rodoviário Cidade Jardim.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 3,
+    nome: 'AE Vila Nogueira',
+    imagem: '/assets/clubes/AE Vila Nogueira.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 4,
+    nome: 'Atlético Bonfim FC',
+    imagem: '/assets/clubes/Atlético Bonfim FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 5,
+    nome: 'Brooklyn FC',
+    imagem: '/assets/clubes/Brooklyn FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 6,
+    nome: 'CA Gurilândia',
+    imagem: '/assets/clubes/CA Gurilândia.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 7,
+    nome: 'CAM 13 de Maio',
+    imagem: '/assets/clubes/CAM 13 de Maio.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 8,
+    nome: 'EC Belém de Taubaté',
+    imagem: '/assets/clubes/EC Belém de Taubaté.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 9,
+    nome: 'EC Flamenguinho Terra Nova',
+    imagem: '/assets/clubes/EC Flamenguinho Terra Nova.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 10,
+    nome: 'EC Internacional',
+    imagem: '/assets/clubes/EC Internacional.png',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 11,
+    nome: 'Estoril City FC',
+    imagem: '/assets/clubes/Estoril City FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 12,
+    nome: 'GE Nova América',
+    imagem: '/assets/clubes/GE Nova América.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 13,
+    nome: 'Inter Zurk FC',
+    imagem: '/assets/clubes/Inter Zurk FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 14,
+    nome: 'Rodoviário FC',
+    imagem: '/assets/clubes/Rodoviário FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 15,
+    nome: 'SE Fonte Imaculada',
+    imagem: '/assets/clubes/SE Fonte Imaculada.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 16,
+    nome: 'Unidos da Vila FC',
+    imagem: '/assets/clubes/Unidos da Vila FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
+  },
+  {
+    id: 17,
+    nome: 'Vila Nossa Senhora das Graças FC',
+    imagem: '/assets/clubes/Vila Nossa Senhora das Graças FC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
   }
 ]
