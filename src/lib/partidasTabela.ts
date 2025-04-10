@@ -15,22 +15,22 @@ export const partidas: Partida[] = [
     rodada: 1,
     data: '20/03/2025',
     horario: '15:00',
-    mandante: 'Time A',
-    visitante: 'Time B',
+    mandante: 'AA São Gonçalo',
+    visitante: 'AE Cecap',
     placarMandante: 2,
     placarVisitante: 1,
     local: 'Estádio A',
-    campeonato: 'brasileirao'
+    campeonato: 'sub20'
   },
   {
     rodada: 1,
     data: '20/03/2025',
     horario: '17:00',
-    mandante: 'Time C',
-    visitante: 'Time A',
+    mandante: 'AA Parque Aeroporto',
+    visitante: 'AA Parque São Luiz',
     placarMandante: 0,
     placarVisitante: 3,
     local: 'Estádio C',
-    campeonato: 'libertadores'
+    campeonato: 'Divisão 1'
   }
 ]

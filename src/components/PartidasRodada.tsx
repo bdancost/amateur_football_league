@@ -1,18 +1,84 @@
-import Image from 'next/image'
-import {
-  timesSub20,
-  times1Divisao,
-  times2Divisao,
-  times3Divisao
-} from '@/lib/timesTabela'
-import { Clock } from 'lucide-react'
-import { Partida } from '@/lib/partidasTabela'
+'use client'
 
-type Props = {
-  partidas: Partida[]
-  rodada: number
+import Image from 'next/image'
+import { Clock } from 'lucide-react'
+
+// Tipo da partida
+type Partida = {
+  mandante: string
+  visitante: string
+  horario: string
+  data: string
+  local: string
 }
 
+// Lista de partidas direto no componente
+const partidas: Partida[] = [
+  {
+    mandante: 'EC MOURISCO',
+    visitante: 'EC XV DE NOVEMBRO',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: 'CAMPO MUNICIPAL JARDIM MOURISCO'
+  },
+  {
+    mandante: 'IPANEMA',
+    visitante: 'PARQUE SÃO LUIZ',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: 'CAMPO SEBASTIÃO PEREIRA GOULART'
+  },
+  {
+    mandante: 'UNIÃO OPERÁRIA',
+    visitante: 'ATLÉTICO CECAP',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: 'CAMPO UNIÃO OPERÁRIA'
+  },
+  {
+    mandante: 'UNIDOS SÃO GONÇALO',
+    visitante: 'ÁGUA QUENTE',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: 'CAMPO JOSÉ SILVA'
+  },
+  {
+    mandante: 'PARQUE AEROPORTO',
+    visitante: 'VILA SÃO JOSÉ',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: 'ARENA PHILKO'
+  },
+  {
+    mandante: 'VILA SÃO GERALDO',
+    visitante: 'JUVENTUS',
+    horario: '10:00',
+    data: '14/04/2024',
+    local: ''
+  }
+]
+
+// Exemplo de times com imagem (você pode substituir pelos reais)
+const todosOsTimes = [
+  { name: 'EC Mourisco', image: '/assets/clubes/EC Mourisco.jpeg' },
+  { name: 'EC XV DE NOVEMBRO', image: '/assets/clubes/EC XV de Novembro.jpeg' },
+  { name: 'IPANEMA', imagem: '/assets/ipanema.png' },
+  { name: 'PARQUE SÃO LUIZ', image: '/assets/parque-sao-luiz.png' },
+  { name: 'UNIÃO OPERÁRIA', image: '/assets/uniao-operaria.png' },
+  { name: 'ATLÉTICO CECAP', image: '/assets/atletico-cecap.png' },
+  { name: 'UNIDOS SÃO GONÇALO', image: '/assets/unidos-sao-goncalo.png' },
+  { name: 'ÁGUA QUENTE', image: '/assets/agua-quente.png' },
+  { name: 'PARQUE AEROPORTO', image: '/assets/parque-aeroporto.png' },
+  { name: 'VILA SÃO JOSÉ', image: '/assets/vila-sao-jose.png' },
+  { name: 'VILA SÃO GERALDO', image: '/assets/vila-sao-geraldo.png' },
+  { name: 'JUVENTUS', image: '/assets/juventus.png' }
+]
+
+// Função para buscar o time pela lista
+const buscarTime = (name: string) =>
+  todosOsTimes.find((time) => time.name.toUpperCase() === name.toUpperCase())
+
+// Função para formatar data
 const formatarDataExtensa = (data: string) => {
   const [dia, mes, ano] = data.split('/')
   const meses = [
@@ -32,21 +98,12 @@ const formatarDataExtensa = (data: string) => {
   return `${Number(dia)} de ${meses[Number(mes) - 1]} de ${ano}`
 }
 
-const PartidasRodada = ({ partidas, rodada }: Props) => {
+// Componente principal
+const PartidasRodada = ({ rodada }: { rodada: number }) => {
   if (partidas.length === 0)
     return <p className="text-center">Nenhuma partida encontrada.</p>
 
   const dataRodada = partidas[0].data
-
-  const todosOsTimes = [
-    ...times1Divisao,
-    ...times2Divisao,
-    ...times3Divisao,
-    ...timesSub20
-  ]
-
-  const buscarTime = (nome: string) =>
-    todosOsTimes.find((time) => time.nome === nome)
 
   return (
     <div className="space-y-4">
@@ -72,27 +129,27 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
               {partida.horario}
             </div>
 
-            {/* Time mandante vs visitante */}
+            {/* Mandante vs Visitante */}
             <div className="flex items-center gap-2 text-sm font-medium uppercase">
               {mandante && (
                 <>
                   <Image
-                    src={mandante.imagem}
-                    alt={mandante.nome}
+                    src={mandante!.image}
+                    alt={mandante!.name}
                     width={24}
                     height={24}
                     className="rounded-full"
                   />
-                  <span>{mandante.nome}</span>
+                  <span>{mandante!.name}</span>
                 </>
               )}
               <span className="mx-1 font-bold">vs</span>
               {visitante && (
                 <>
-                  <span>{visitante.nome}</span>
+                  <span>{visitante!.name}</span>
                   <Image
-                    src={visitante.imagem}
-                    alt={visitante.nome}
+                    src={visitante!.image}
+                    alt={visitante!.name}
                     width={24}
                     height={24}
                     className="rounded-full"
@@ -103,7 +160,7 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
 
             {/* Estádio */}
             <div className="text-xs text-gray-500 w-32 text-right">
-              {partida.local}
+              {partida.local || 'Local a definir'}
             </div>
           </div>
         )
