@@ -13,7 +13,7 @@ import {
   times3Divisao,
   Time
 } from '@/lib/timesTabela'
-import { partidas } from '@/lib/partidasTabela'
+import { partidasTabela } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
   const todosTimes = [
@@ -39,7 +39,7 @@ const TabelaClassificacao = () => {
     useState('1° Divisão')
 
   // Filtra as partidas de acordo com o campeonato e rodada
-  const partidasFiltradas = partidas.filter(
+  const partidasFiltradas = partidasTabela.filter(
     (partida) =>
       partida.rodada === rodadaSelecionada &&
       partida.campeonato === campeonatoSelecionado
@@ -138,7 +138,13 @@ const TabelaClassificacao = () => {
         <h3 className="text-lg font-bold mt-10 mb-4 text-center">
           Partidas Agendadas - 1ª Rodada
         </h3>
-        <PartidasAgendadas partidas={partidas} />
+        <PartidasAgendadas
+          partidas={partidasTabela.filter(
+            (partida) =>
+              partida.rodada === 1 &&
+              partida.campeonato === campeonatoSelecionado
+          )}
+        />
       </div>
     </div>
   )
