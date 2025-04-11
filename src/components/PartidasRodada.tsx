@@ -12,14 +12,33 @@ const todosOsTimes = [
     name: 'AA PARQUE SÃO LUIZ',
     image: '/assets/clubes/AA Parque São Luiz.jpeg'
   },
-  { name: 'UNIÃO OPERÁRIA', image: '/assets/uniao-operaria.png' },
-  { name: 'ATLÉTICO CECAP', image: '/assets/atletico-cecap.png' },
-  { name: 'UNIDOS SÃO GONÇALO', image: '/assets/unidos-sao-goncalo.png' },
-  { name: 'ÁGUA QUENTE', image: '/assets/agua-quente.png' },
-  { name: 'PARQUE AEROPORTO', image: '/assets/parque-aeroporto.png' },
-  { name: 'VILA SÃO JOSÉ', image: '/assets/vila-sao-jose.png' },
-  { name: 'VILA SÃO GERALDO', image: '/assets/vila-sao-geraldo.png' },
-  { name: 'JUVENTUS', image: '/assets/juventus.png' }
+  { name: 'UNIÃO OPERÁRIA FC', image: '/assets/clubes/União Operária FC.jpeg' },
+  { name: 'C ATLÉTICO CECAP', image: '/assets/clubes/C Atlético Cecap.jpeg' },
+  {
+    name: 'UNIDOS SÃO GONÇALO FC',
+    image: '/assets/clubes/Unidos São Gonçalo FC.jpeg'
+  },
+  { name: 'EC ÁGUA QUENTE', image: '/assets/clubes/EC Água Quente.jpeg' },
+  {
+    name: 'AA PARQUE AEROPORTO',
+    image: '/assets/clubes/AA Parque Aeroporto.jpeg'
+  },
+  { name: 'EC VILA SÃO JOSÉ', image: '/assets/clubes/EC Vila São José.jpeg' },
+  {
+    name: 'AE VILA SÃO GERALDO',
+    image: '/assets/clubes/AE Vila São Geraldo.jpeg'
+  },
+  { name: 'CA JUVENTUS', image: '/assets/clubes/CA Juventus.jpeg' },
+  {
+    name: 'Unidos Marlene Miranda FC',
+    image: '/assets/clubes/Unidos Marlene Miranda FC.jpeg'
+  },
+  { name: 'SE PARQUE URUPÊS', image: '/assets/clubes/SE Parque Urupês.jpeg' },
+  {
+    name: 'AA RODOVIÁRIO CIDADE JARDIM',
+    image: '/assets/clubes/AA Rodoviário Cidade Jardim.jpeg'
+  },
+  { name: 'AA SÃO GONÇALO', image: '/assets/clubes/AA São Gonçalo.jpeg' }
 ]
 
 const buscarTime = (name: string) =>
@@ -81,9 +100,10 @@ const PartidasRodada = ({
             </div>
 
             {/* Confronto */}
-            <div className="flex items-center gap-2 text-sm font-medium uppercase">
+            <div className="flex items-center gap-4 text-sm font-medium uppercase">
               {mandante && (
-                <>
+                <div className="flex items-center gap-4">
+                  <span className="font-bold">{mandante.name}</span>
                   <Image
                     src={mandante.image}
                     alt={mandante.name}
@@ -91,13 +111,13 @@ const PartidasRodada = ({
                     height={24}
                     className="rounded-full"
                   />
-                  <span>{mandante.name}</span>
-                </>
+                </div>
               )}
-              <span className="mx-1 font-bold">vs</span>
+
+              <span className="mx-2 font-bold">vs</span>
+
               {visitante && (
-                <>
-                  <span>{visitante.name}</span>
+                <div className="flex items-center gap-4">
                   <Image
                     src={visitante.image}
                     alt={visitante.name}
@@ -105,7 +125,8 @@ const PartidasRodada = ({
                     height={24}
                     className="rounded-full"
                   />
-                </>
+                  <span className="font-bold">{visitante.name}</span>
+                </div>
               )}
             </div>
 
