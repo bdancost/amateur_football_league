@@ -100,10 +100,13 @@ const PartidasRodada = ({
             </div>
 
             {/* Confronto */}
+            {/* Confronto */}
             <div className="flex items-center gap-4 text-sm font-medium uppercase">
               {mandante && (
-                <div className="flex items-center gap-4">
-                  <span className="font-bold">{mandante.name}</span>
+                <div className="flex items-center gap-2 w-[200px] justify-start">
+                  <span className="font-bold w-[140px] text-right truncate">
+                    {mandante.name}
+                  </span>
                   <Image
                     src={mandante.image}
                     alt={mandante.name}
@@ -117,7 +120,7 @@ const PartidasRodada = ({
               <span className="mx-2 font-bold">vs</span>
 
               {visitante && (
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 w-[200px] justify-end">
                   <Image
                     src={visitante.image}
                     alt={visitante.name}
@@ -125,7 +128,9 @@ const PartidasRodada = ({
                     height={24}
                     className="rounded-full"
                   />
-                  <span className="font-bold">{visitante.name}</span>
+                  <span className="font-bold w-[140px] text-left truncate">
+                    {visitante.name}
+                  </span>
                 </div>
               )}
             </div>
