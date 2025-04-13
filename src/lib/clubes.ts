@@ -1,4 +1,4 @@
-export const sections = [
+export const clubes = [
   {
     id: '01',
     title: 'Sub 20',

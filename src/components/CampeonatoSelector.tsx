@@ -1,4 +1,4 @@
-import { sections } from '@/lib/clubes'
+import { clubes } from '@/lib/clubes'
 
 interface CampeonatoSelectorProps {
   campeonatoSelecionado: string
@@ -11,7 +11,7 @@ const CampeonatoSelector = ({
 }: CampeonatoSelectorProps) => {
   return (
     <div className="flex flex-wrap gap-4 mb-4 ml-10 mr-10">
-      {sections.map((campeonato) => (
+      {clubes.map((campeonato) => (
         <button
           key={campeonato.id}
           onClick={() => setCampeonatoSelecionado(campeonato.title)}
