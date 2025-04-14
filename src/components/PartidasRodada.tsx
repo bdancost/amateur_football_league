@@ -39,7 +39,7 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
               {/* Mandante, Placar e Visitante em linha */}
               <div className="flex items-center justify-between gap-8">
                 {/* Mandante */}
-                <div className="flex items-center gap-2 w-[240px] justify-between">
+                <div className="flex items-center gap-2 w-[280px] justify-between">
                   <p className="font-bold whitespace-nowrap">
                     {partida.mandante}
                   </p>
@@ -60,7 +60,7 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
                 </div>
 
                 {/* Visitante */}
-                <div className="flex items-center gap-6 w-[240px] justify-between">
+                <div className="flex items-center gap-6 w-[260px] justify-between">
                   {visitante && (
                     <Image
                       src={visitante.image}
@@ -76,10 +76,10 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
                 </div>
               </div>
 
-              {/* Alinhamento centralizado de Data, Horário e Local com ícone de Relógio */}
-              <div className="text-sm text-gray-600 text-center flex items-center justify-center gap-2">
+              {/* Alinhamento do Data e Hora à esquerda e Local à direita */}
+              <div className="text-sm text-gray-600 flex justify-between w-full items-center">
                 <div className="flex items-center gap-2">
-                  <span className="mx-2">{partida.data}</span>
+                  <span>{partida.data}</span>
                   <div className="flex items-center">
                     <Clock size={16} className="text-gray-500" />
                     <span>{partida.horario}H</span>
