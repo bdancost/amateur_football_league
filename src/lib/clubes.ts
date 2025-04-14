@@ -16,8 +16,8 @@ export const clubes = [
         image: '/assets/clubes/AE Vila São Geraldo.jpeg'
       },
       {
-        name: 'CA Boca Junior Jardim América',
-        image: '/assets/clubes/CA Boca Junior Jardim América.jpeg'
+        name: 'Boca Junior Jardim América',
+        image: '/assets/clubes/Boca Junior Jardim América.jpeg'
       },
       {
         name: 'CA Juventus',

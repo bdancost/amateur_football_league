@@ -101,5 +101,49 @@ export const partidasTabela: Partida[] = [
     placarVisitante: 0,
     local: 'CAMPO RODOVIÁRIO',
     campeonato: '1° Divisão'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'AA SÃO GONÇALO',
+    visitante: 'AE CECAP',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO SÃO GONÇALO',
+    campeonato: 'Sub 20'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'AE VILA SÃO GERALDO',
+    visitante: 'BOCA JUNIOR JARDIM AMÉRICA',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO JARDIM SÃO GERALDO',
+    campeonato: 'Sub 20'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'CA JUVENTUS',
+    visitante: 'EC XV DE NOVEMBRO',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO JUVENTUS',
+    campeonato: 'Sub 20'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'RODOVIÁRIO FC',
+    visitante: 'UNIDOS SÃO GONÇALO FC',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO RODOVIÁRIO',
+    campeonato: 'Sub 20'
   }
 ]

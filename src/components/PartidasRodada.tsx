@@ -60,7 +60,7 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
                 </div>
 
                 {/* Visitante */}
-                <div className="flex items-center gap-6 w-[300px] justify-between">
+                <div className="flex items-center gap-6 w-[340px] justify-between">
                   {visitante && (
                     <Image
                       src={visitante.image}
