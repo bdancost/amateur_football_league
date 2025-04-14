@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { clubes } from '@/lib/clubes'
 import { Partida } from '@/lib/partidasTabela'
+import { Clock } from 'lucide-react'
 
 interface Props {
   partidas: Partida[]
@@ -33,49 +34,59 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
           return (
             <div
               key={index}
-              className="flex flex-col gap-2 p-4 border rounded-lg shadow-sm bg-white"
+              className="flex flex-col items-center gap-4 p-4 border-b-2 rounded-lg shadow-sm bg-white"
             >
-              <div className="flex items-center justify-between">
+              {/* Mandante, Placar e Visitante em linha */}
+              <div className="flex items-center justify-between gap-8">
                 {/* Mandante */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 w-[240px] justify-between">
+                  <p className="font-bold whitespace-nowrap">
+                    {partida.mandante}
+                  </p>
                   {mandante && (
                     <Image
                       src={mandante.image}
                       alt={mandante.name}
                       width={32}
                       height={32}
-                      className="rounded-full"
+                      className="rounded-full shrink-0"
                     />
                   )}
-                  <div>
-                    <p className="font-bold">{partida.mandante}</p>
-                  </div>
                 </div>
 
                 {/* Placar */}
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold flex items-center justify-center">
                   {partida.placarMandante} x {partida.placarVisitante}
                 </div>
 
                 {/* Visitante */}
-                <div className="flex items-center gap-2">
-                  <div className="text-right">
-                    <p className="font-bold">{partida.visitante}</p>
-                  </div>
+                <div className="flex items-center gap-6 w-[240px] justify-between">
                   {visitante && (
                     <Image
                       src={visitante.image}
                       alt={visitante.name}
                       width={32}
                       height={32}
-                      className="rounded-full"
+                      className="rounded-full shrink-0"
                     />
                   )}
+                  <p className="font-bold whitespace-nowrap">
+                    {partida.visitante}
+                  </p>
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600 text-center">
-                {partida.data} às {partida.horario} - {partida.local}
+              {/* Alinhamento centralizado de Data, Horário e Local com ícone de Relógio */}
+              <div className="text-sm text-gray-600 text-center flex items-center justify-center gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="mx-2">{partida.data}</span>
+                  <div className="flex items-center">
+                    <Clock size={16} className="text-gray-500" />
+                    <span>{partida.horario}H</span>
+                  </div>
+                </div>
+
+                <span>{partida.local}</span>
               </div>
             </div>
           )

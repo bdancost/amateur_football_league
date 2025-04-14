@@ -126,7 +126,7 @@ const TabelaClassificacao = () => {
         </table>
 
         {/* Lista de Partidas da Rodada */}
-        <h3 className="text-lg font-bold mb-2 text-center">
+        <h3 className="text-lg font-bold mb-2 text-center border-b-2 pb-2">
           Partidas da {rodadaSelecionada}ª Rodada
         </h3>
         <PartidasRodada
