@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { MoreVertical, ArrowLeft } from 'lucide-react'
-import { sections } from '@/lib/clubes'
+import { clubes } from '@/lib/clubes'
 
 const Clubes = () => {
   const [selectedClub, setSelectedClub] = useState<string>('02') // Divisão padrão é 1° Divisão
@@ -23,7 +23,7 @@ const Clubes = () => {
         {/* Menu lateral fixo */}
         <aside className={`w-1/4 self-start hidden md:block`}>
           <nav className="space-y-6">
-            {sections.map((section) => (
+            {clubes.map((section) => (
               <a
                 key={section.id}
                 href={`#${section.id}`}
@@ -53,7 +53,7 @@ const Clubes = () => {
         <div className="md:hidden w-full">
           {!isMobileView ? (
             <div className="flex flex-col gap-4">
-              {sections.map((section) => (
+              {clubes.map((section) => (
                 <button
                   key={section.id}
                   className="block w-full rounded-lg text-black hover:bg-gray-300 mb-2 font-semibold border-b-2 pb-6 mt-4"
@@ -82,7 +82,7 @@ const Clubes = () => {
               </button>
               {/* Galeria de imagens */}
               <div className="grid grid-cols-2 gap-4">
-                {sections
+                {clubes
                   .find((section) => section.id === selectedClub)
                   ?.clubs?.map((club, index) => (
                     <Image
@@ -102,12 +102,12 @@ const Clubes = () => {
         {/* Conteúdo principal */}
         <div className="w-3/4 hidden md:block">
           <h2 className="uppercase font-bold text-[25px] text-black mt-0">
-            {sections.find((section) => section.id === selectedClub)?.title}
+            {clubes.find((section) => section.id === selectedClub)?.title}
           </h2>
 
           {/* Exibindo as imagens dos clubes da divisão selecionada */}
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {sections
+            {clubes
               .find((section) => section.id === selectedClub)
               ?.clubs.map((club, index) => (
                 <div key={index} className="flex flex-col items-center">
