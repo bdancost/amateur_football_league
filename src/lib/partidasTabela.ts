@@ -79,5 +79,27 @@ export const partidasTabela: Partida[] = [
     placarVisitante: 0,
     local: 'CAMPO JARDIM SÃO GERALDO',
     campeonato: '1° Divisão'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'UNIDOS MARLENE MIRANDA FC',
+    visitante: 'SE PARQUE URUPÊS',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO MARLENE MIRANDA',
+    campeonato: '1° Divisão'
+  },
+  {
+    rodada: 1,
+    data: '20/03/2025',
+    horario: '10:00',
+    mandante: 'AA RODOVIÁRIO CIDADE JARDIM',
+    visitante: 'AA SÃO GONÇALO',
+    placarMandante: 0,
+    placarVisitante: 0,
+    local: 'CAMPO RODOVIÁRIO',
+    campeonato: '1° Divisão'
   }
 ]
