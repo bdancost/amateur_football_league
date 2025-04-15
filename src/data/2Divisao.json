@@ -1,0 +1,90 @@
+[
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "AA JARDIM JARAGUÁ",
+    "visitante": "AA RODOVIÁRIO CIDADE JARDIM",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO JARAGUÁ",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "AE VILA NOGUEIRA",
+    "visitante": "ATLÉTICO BONFIM FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO VILA NOGUEIRA",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "BROOKLYN FC",
+    "visitante": "CA GURILÂNDIA",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO BROOKLYN",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "CAM 13 DE MAIO",
+    "visitante": "EC BELÉM DE TAUBATÉ",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO 13 DE MAIO",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "EC FLAMENGUINHO TERRA NOVA",
+    "visitante": "EC INTERNACIONAL",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO FLAMENGUINHO",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "ESTORIL CITY FC",
+    "visitante": "GE NOVA AMÉRICA",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO ESTORIL",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "INTER ZURK FC",
+    "visitante": "RODOVIÁRIO FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO ZURK",
+    "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "SE FONTE IMACULADA",
+    "visitante": "UNIDOS DA VILA FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO FONTE IMACULADA",
+    "campeonato": "2° Divisão"
+  }
+]
