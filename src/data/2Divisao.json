@@ -86,5 +86,16 @@
     "placarVisitante": 0,
     "local": "CAMPO FONTE IMACULADA",
     "campeonato": "2° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "VILA NOSSA SENHORA DAS GRAÇAS FC",
+    "visitante": "GARÇA EC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO VILA NOSSA SENHORA",
+    "campeonato": "2° Divisão"
   }
 ]

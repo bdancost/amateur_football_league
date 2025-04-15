@@ -511,6 +511,18 @@ export const times2Divisao: Time[] = [
     GP: 0,
     GC: 0,
     campeonato: '2° Divisão'
+  },
+  {
+    id: 18,
+    nome: 'Garça EC',
+    imagem: '/assets/clubes/Garça EC.jpeg',
+    J: 0,
+    V: 0,
+    E: 0,
+    D: 0,
+    GP: 0,
+    GC: 0,
+    campeonato: '2° Divisão'
   }
 ]
 

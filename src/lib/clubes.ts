@@ -145,6 +145,10 @@ export const clubes = [
       {
         name: 'Vila Nossa Senhora das Graças FC',
         image: '/assets/clubes/Vila Nossa Senhora das Graças FC.jpeg'
+      },
+      {
+        name: 'Garça EC',
+        image: '/assets/clubes/Garça EC.jpeg'
       }
     ]
   },
