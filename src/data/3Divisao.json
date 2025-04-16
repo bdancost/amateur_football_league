@@ -1,0 +1,123 @@
+[
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "AA VILA ALBINA",
+    "visitante": "AE CECAP",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio Municipal",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "AE CHÁCARA FLÓRIDA",
+    "visitante": "BARONESA FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Campo da Chácara",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "BROTHER'S SC",
+    "visitante": "BÁSICO FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio do Brother's",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "BOCA JUNIOR JARDIM AMÉRICA",
+    "visitante": "EC ABAETÉ",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio do Boca",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "EC ESPLANADA SANTA TEREZINHA",
+    "visitante": "EC VII DE MARÇO",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio do Esplanada",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "GRM SITÍO SANTO ANTÔNIO",
+    "visitante": "GUERREIROS ÁGUA QUENTE FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio do Sitío",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "OLYMPIQUE TAUBATÉ FC",
+    "visitante": "SE ESPLANADA",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO MUNICIPAL JARDIM MOURISCO",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "SE INDEPENDÊNCIA",
+    "visitante": "SEM NOÇÃO FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "Estádio do Independência",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "EC MOURISCO",
+    "visitante": "AE VILA SÃO GERALDO",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO MUNICIPAL JARDIM MOURISCO",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "EC ALTA SÃO PEDRO",
+    "visitante": "TEXAS FC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO MUNICIPAL JARDIM MOURISCO",
+    "campeonato": "3° Divisão"
+  },
+  {
+    "rodada": 1,
+    "data": "20/03/2025",
+    "horario": "10:00",
+    "mandante": "TRÊS MARIAS FC",
+    "visitante": "VILA BELA EC",
+    "placarMandante": 0,
+    "placarVisitante": 0,
+    "local": "CAMPO MUNICIPAL JARDIM MOURISCO",
+    "campeonato": "3° Divisão"
+  }
+]

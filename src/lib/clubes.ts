@@ -166,7 +166,7 @@ export const clubes = [
       { name: "Brother's SC", image: "/assets/clubes/Brother's SC.jpg" },
       { name: 'Básico FC', image: '/assets/clubes/Básico FC.jpeg' },
       {
-        name: 'CA Boca Junior Jardim América',
+        name: 'Boca Junior Jardim América',
         image: '/assets/clubes/CA Boca Junior Jardim América.jpeg'
       },
       { name: 'EC Abaeté', image: '/assets/clubes/EC Abaeté.jpg' },

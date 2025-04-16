@@ -601,7 +601,7 @@ export const times3Divisao: Time[] = [
   },
   {
     id: 7,
-    nome: 'CA Boca Junior Jardim América',
+    nome: 'Boca Junior Jardim América',
     imagem: '/assets/clubes/CA Boca Junior Jardim América.jpeg',
     J: 0,
     V: 0,
