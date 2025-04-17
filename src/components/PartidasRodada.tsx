@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import { clubes } from '@/lib/clubes'
-import { Partida } from '@/lib/partidasTabela'
+import { partidas } from '@/lib/partidasTabela'
 import { Clock } from 'lucide-react'
 
 interface Props {
-  partidas: Partida[]
+  partidas: typeof partidas
   rodada: number
 }
 

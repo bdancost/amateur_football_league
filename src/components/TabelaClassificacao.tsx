@@ -13,7 +13,11 @@ import {
   times3Divisao,
   Time
 } from '@/lib/timesTabela'
-import { partidasTabela } from '@/lib/partidasTabela'
+import divisao1 from '@/data/divisao1.json'
+import divisao2 from '@/data/divisao2.json'
+import divisao3 from '@/data/divisao3.json'
+import sub20 from '@/data/sub20.json'
+import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
   const todosTimes = [
@@ -33,13 +37,20 @@ const calcularClassificacao = (campeonato: string): Time[] => {
     }))
 }
 
+const partidasPorCampeonato: Record<string, Partida[]> = {
+  '1° Divisão': divisao1,
+  '2° Divisão': divisao2,
+  '3° Divisão': divisao3,
+  Sub20: sub20
+}
+
 const TabelaClassificacao = () => {
   const [rodadaSelecionada, setRodadaSelecionada] = useState(1)
   const [campeonatoSelecionado, setCampeonatoSelecionado] =
     useState('1° Divisão')
 
   // Filtra as partidas de acordo com o campeonato e rodada
-  const partidasFiltradas = partidasTabela.filter(
+  const partidasFiltradas = partidas.filter(
     (partida) =>
       partida.rodada === rodadaSelecionada &&
       partida.campeonato === campeonatoSelecionado
@@ -49,6 +60,13 @@ const TabelaClassificacao = () => {
   const classificacao = calcularClassificacao(campeonatoSelecionado).sort(
     (a, b) => (b.P ?? 0) - (a.P ?? 0) || (b.SG ?? 0) - (a.SG ?? 0)
   )
+
+  const rodadasPorCampeonato: Record<string, number> = {
+    '1° Divisão': 15,
+    '2° Divisão': 17,
+    '3° Divisão': 19,
+    'Sub 20': 7
+  }
 
   return (
     <div className="container mx-auto p-4 text-black">
@@ -69,9 +87,10 @@ const TabelaClassificacao = () => {
           value={rodadaSelecionada}
           onChange={(e) => setRodadaSelecionada(Number(e.target.value))}
         >
-          {[
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-          ].map((rodada) => (
+          {Array.from(
+            { length: rodadasPorCampeonato[campeonatoSelecionado] },
+            (_, i) => i + 1
+          ).map((rodada) => (
             <option key={rodada} value={rodada}>
               {rodada}ª Rodada
             </option>
@@ -144,7 +163,7 @@ const TabelaClassificacao = () => {
           Partidas Agendadas - 1ª Rodada
         </h3>
         <PartidasAgendadas
-          partidas={partidasTabela.filter(
+          partidas={partidas.filter(
             (partida) =>
               partida.rodada === 1 &&
               partida.campeonato === campeonatoSelecionado
