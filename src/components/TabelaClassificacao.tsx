@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Filter } from 'lucide-react'
 import PartidasRodada from './PartidasRodada'
-import PartidasAgendadas from './PartidasAgendadas'
 import CampeonatoSelector from './CampeonatoSelector'
 import Image from 'next/image'
 import {
@@ -158,17 +157,6 @@ const TabelaClassificacao = () => {
           rodada={rodadaSelecionada}
         />
 
-        {/* Partidas Agendadas da 1ª Rodada (sem placar) */}
-        <h3 className="text-lg font-bold mt-10 mb-4 text-center">
-          Partidas Agendadas - 1ª Rodada
-        </h3>
-        <PartidasAgendadas
-          partidas={partidas.filter(
-            (partida) =>
-              partida.rodada === 1 &&
-              partida.campeonato === campeonatoSelecionado
-          )}
-        />
       </div>
     </div>
   )
