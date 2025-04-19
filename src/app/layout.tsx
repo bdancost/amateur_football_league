@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import '../styles/globals.css'
 import Header from '@/components/Header'
 import Parceiros from '@/components/Parceiros'
 import Footer from '@/components/Footer'

@@ -53,7 +53,7 @@ export const timesSub20: Time[] = [
   {
     id: 4,
     nome: 'Boca Junior Jardim América',
-    imagem: '/assets/clubes/CA Boca Junior Jardim América.jpeg',
+    imagem: '/assets/clubes/Boca Junior Jardim América.jpeg',
     J: 0,
     V: 0,
     E: 0,
@@ -602,7 +602,7 @@ export const times3Divisao: Time[] = [
   {
     id: 7,
     nome: 'Boca Junior Jardim América',
-    imagem: '/assets/clubes/CA Boca Junior Jardim América.jpeg',
+    imagem: '/assets/clubes/Boca Junior Jardim América.jpeg',
     J: 0,
     V: 0,
     E: 0,
