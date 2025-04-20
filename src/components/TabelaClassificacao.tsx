@@ -12,10 +12,7 @@ import {
   times3Divisao,
   Time
 } from '@/lib/timesTabela'
-import divisao1 from '@/data/divisao1.json'
-import divisao2 from '@/data/divisao2.json'
-import divisao3 from '@/data/divisao3.json'
-import sub20 from '@/data/sub20.json'
+
 import { partidas } from '@/lib/partidasTabela'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
@@ -34,13 +31,6 @@ const calcularClassificacao = (campeonato: string): Time[] => {
       P: time.V * 3 + time.E,
       SG: time.GP - time.GC
     }))
-}
-
-const partidasPorCampeonato: Record<string, Partida[]> = {
-  '1° Divisão': divisao1,
-  '2° Divisão': divisao2,
-  '3° Divisão': divisao3,
-  Sub20: sub20
 }
 
 const TabelaClassificacao = () => {
