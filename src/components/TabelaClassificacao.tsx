@@ -23,7 +23,6 @@ const calcularClassificacao = (campeonato: string): Time[] => {
     ...times3Divisao
   ]
 
-  // Filtra os times de acordo com o campeonato selecionado
   return todosTimes
     .filter((time) => time.campeonato === campeonato)
     .map((time) => ({
@@ -38,14 +37,12 @@ const TabelaClassificacao = () => {
   const [campeonatoSelecionado, setCampeonatoSelecionado] =
     useState('1° Divisão')
 
-  // Filtra as partidas de acordo com o campeonato e rodada
   const partidasFiltradas = partidas.filter(
     (partida) =>
       partida.rodada === rodadaSelecionada &&
       partida.campeonato === campeonatoSelecionado
   )
 
-  // Calcula a classificação com base no campeonato selecionado
   const classificacao = calcularClassificacao(campeonatoSelecionado).sort(
     (a, b) => (b.P ?? 0) - (a.P ?? 0) || (b.SG ?? 0) - (a.SG ?? 0)
   )
@@ -58,7 +55,7 @@ const TabelaClassificacao = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 text-black">
+    <div className="container mx-auto px-4 py-6 text-black">
       {/* Seleção do Campeonato */}
       <CampeonatoSelector
         campeonatoSelecionado={campeonatoSelecionado}
@@ -66,7 +63,7 @@ const TabelaClassificacao = () => {
       />
 
       {/* Filtro de rodadas */}
-      <div className="w-64 mb-6">
+      <div className="w-full sm:w-64 mb-6">
         <h2 className="text-md font-bold mb-2 flex items-center uppercase">
           <Filter className="mr-2 text-foreground" size={18} />
           Rodada
@@ -87,65 +84,72 @@ const TabelaClassificacao = () => {
         </select>
       </div>
 
-      {/* Renderiza Classificação e Partidas dinamicamente */}
-      <div className="p-4">
-        {/* Lista de Partidas da Rodada */}
-        <h2 className="bg-gray-100 text-xl font-bold text-center mb-4 border-2 p-3 uppercase">
+      {/* Conteúdo principal */}
+      <div className="p-2 sm:p-4">
+        {/* Tabela de Jogos */}
+        <h2 className="bg-gray-100 text-xl sm:text-2xl font-bold text-center mb-4 border-2 p-3 uppercase">
           Tabela de Jogos
         </h2>
-        <h3 className="text-lg font-bold mb-2 text-center border-b-2 pb-2">
+
+        <h3 className="text-base sm:text-lg font-bold mb-4 text-center border-b-2 pb-2">
           Partidas da {rodadaSelecionada}ª Rodada
         </h3>
+
         <PartidasRodada
           partidas={partidasFiltradas}
           rodada={rodadaSelecionada}
         />
 
-        <h2 className="text-xl font-bold text-center mb-4 uppercase mt-12">
+        {/* Título Classificação */}
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 uppercase mt-12">
           Classificação - {campeonatoSelecionado}
         </h2>
 
-        {/* Tabela de Classificação */}
-        <table className="w-full border-collapse border border-gray-300 text-center uppercase mb-8">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border px-4 py-2">Time</th>
-              <th className="border px-4 py-2">P</th>
-              <th className="border px-4 py-2">J</th>
-              <th className="border px-4 py-2">V</th>
-              <th className="border px-4 py-2">E</th>
-              <th className="border px-4 py-2">D</th>
-              <th className="border px-4 py-2">GP</th>
-              <th className="border px-4 py-2">GC</th>
-              <th className="border px-4 py-2">SG</th>
-            </tr>
-          </thead>
-          <tbody>
-            {classificacao.map((time, index) => (
-              <tr key={time.id} className="border">
-                <td className="border px-4 py-2 font-bold flex justify-start items-center gap-4">
-                  <span className="w-6 text-right mr-8">{index + 1}</span>
-                  <Image
-                    src={time.imagem}
-                    alt={time.nome}
-                    width={32}
-                    height={32}
-                    className="rounded-full"
-                  />
-                  {time.nome}
-                </td>
-                <td className="border px-4 py-2">{time.P}</td>
-                <td className="border px-4 py-2">{time.J}</td>
-                <td className="border px-4 py-2">{time.V}</td>
-                <td className="border px-4 py-2">{time.E}</td>
-                <td className="border px-4 py-2">{time.D}</td>
-                <td className="border px-4 py-2">{time.GP}</td>
-                <td className="border px-4 py-2">{time.GC}</td>
-                <td className="border px-4 py-2">{time.SG}</td>
+        {/* Tabela Responsiva */}
+        <div className="overflow-x-auto">
+          <table className="min-w-[640px] sm:w-full border-collapse border border-gray-300 text-center uppercase text-sm sm:text-base mb-8">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-2 sm:px-4 py-2">Time</th>
+                <th className="border px-2 sm:px-4 py-2">P</th>
+                <th className="border px-2 sm:px-4 py-2">J</th>
+                <th className="border px-2 sm:px-4 py-2">V</th>
+                <th className="border px-2 sm:px-4 py-2">E</th>
+                <th className="border px-2 sm:px-4 py-2">D</th>
+                <th className="border px-2 sm:px-4 py-2">GP</th>
+                <th className="border px-2 sm:px-4 py-2">GC</th>
+                <th className="border px-2 sm:px-4 py-2">SG</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {classificacao.map((time, index) => (
+                <tr key={time.id} className="border">
+                  <td className="border px-2 sm:px-4 py-2 font-bold flex items-center gap-2 sm:gap-4 text-left">
+                    <span className="w-4 sm:w-6 text-right mr-2 sm:mr-4">
+                      {index + 1}
+                    </span>
+                    <Image
+                      src={time.imagem}
+                      alt={time.nome}
+                      width={24}
+                      height={24}
+                      className="rounded-full"
+                    />
+                    <span className="truncate">{time.nome}</span>
+                  </td>
+                  <td className="border px-2 sm:px-4 py-2">{time.P}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.J}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.V}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.E}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.D}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.GP}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.GC}</td>
+                  <td className="border px-2 sm:px-4 py-2">{time.SG}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

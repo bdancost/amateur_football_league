@@ -16,7 +16,6 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
       {partidas
         .filter((partida) => partida.rodada === rodada)
         .map((partida, index) => {
-          // Encontrando os clubes com base no nome correto (name)
           const mandante = clubes
             .flatMap((campeonato) => campeonato.clubs)
             .find(
@@ -34,59 +33,60 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
           return (
             <div
               key={index}
-              className="flex flex-col items-center gap-4 p-4 border-b-2 rounded-lg shadow-sm bg-white"
+              className="flex flex-col gap-4 p-4 border-b-2 rounded-lg shadow-sm bg-white"
             >
-              {/* Mandante, Placar e Visitante em linha */}
-              <div className="flex items-center justify-between gap-8">
+              {/* Linha de times e placar */}
+              <div className="flex items-center justify-center gap-6 w-full">
                 {/* Mandante */}
-                <div className="flex items-center gap-2 w-[300px] justify-between">
-                  <p className="font-bold whitespace-nowrap">
-                    {partida.mandante}
-                  </p>
+                <div className="flex items-center gap-4 w-[160px] justify-end">
                   {mandante && (
                     <Image
                       src={mandante.image}
                       alt={mandante.name}
                       width={32}
                       height={32}
-                      className="rounded-full shrink-0"
+                      className="rounded-full"
                     />
                   )}
+                  <p className="font-bold text-right truncate w-[100px]">
+                    {partida.mandante}
+                  </p>
                 </div>
 
                 {/* Placar */}
-                <div className="text-lg font-bold flex items-center justify-center">
+                <div className="text-lg font-bold w-[60px] text-center">
                   {partida.placarMandante} x {partida.placarVisitante}
                 </div>
 
                 {/* Visitante */}
-                <div className="flex items-center gap-6 w-[340px] justify-between">
+                <div className="flex items-center gap-4 w-[160px] justify-start">
+                  <p className="font-bold truncate w-[100px]">
+                    {partida.visitante}
+                  </p>
                   {visitante && (
                     <Image
                       src={visitante.image}
                       alt={visitante.name}
                       width={32}
                       height={32}
-                      className="rounded-full shrink-0"
+                      className="rounded-full"
                     />
                   )}
-                  <p className="font-bold whitespace-nowrap">
-                    {partida.visitante}
-                  </p>
                 </div>
               </div>
 
-              {/* Alinhamento do Data e Hora à esquerda e Local à direita */}
-              <div className="text-sm text-gray-600 flex justify-between w-full items-center">
+              {/* Linha de data, hora e local */}
+              <div className="text-sm text-gray-600 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
                 <div className="flex items-center gap-2">
                   <span>{partida.data}</span>
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-1">
                     <Clock size={16} className="text-gray-500" />
                     <span>{partida.horario}H</span>
                   </div>
                 </div>
-
-                <span>{partida.local}</span>
+                <span className="text-center sm:text-right">
+                  {partida.local}
+                </span>
               </div>
             </div>
           )
