@@ -14,6 +14,7 @@ import {
 } from '@/lib/timesTabela'
 
 import { partidas } from '@/lib/partidasTabela'
+import ArtilhariaCampeonato from './ArtilhariaCampeonato'
 
 const calcularClassificacao = (campeonato: string): Time[] => {
   const todosTimes = [
@@ -149,6 +150,8 @@ const TabelaClassificacao = () => {
               ))}
             </tbody>
           </table>
+          {/* Artilharia do Campeonato */}
+          <ArtilhariaCampeonato campeonatoSelecionado={campeonatoSelecionado} />
         </div>
       </div>
     </div>
