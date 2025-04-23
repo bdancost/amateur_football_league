@@ -35,10 +35,13 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
               key={index}
               className="flex flex-col gap-4 p-4 border-b-2 rounded-lg shadow-sm bg-white"
             >
-              {/* Linha de times e placar */}
-              <div className="flex items-center justify-center gap-6 w-full">
-                {/* Mandante */}
-                <div className="flex items-center gap-4 w-[160px] justify-end">
+              {/* Linha de times com escudos e nomes */}
+              <div className="flex items-center justify-center gap-8 w-full">
+                {/* Nome mandante + escudo */}
+                <div className="flex items-center justify-end gap-4 w-[200px]">
+                  <p className="font-bold text-right whitespace-nowrap">
+                    {partida.mandante}
+                  </p>
                   {mandante && (
                     <Image
                       src={mandante.image}
@@ -48,21 +51,13 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
                       className="rounded-full"
                     />
                   )}
-                  <p className="font-bold text-right truncate w-[100px]">
-                    {partida.mandante}
-                  </p>
                 </div>
 
-                {/* Placar */}
-                <div className="text-lg font-bold w-[60px] text-center">
-                  {partida.placarMandante} x {partida.placarVisitante}
-                </div>
+                {/* VS */}
+                <div className="font-bold text-lg w-[40px] text-center">VS</div>
 
-                {/* Visitante */}
-                <div className="flex items-center gap-4 w-[160px] justify-start">
-                  <p className="font-bold truncate w-[100px]">
-                    {partida.visitante}
-                  </p>
+                {/* Escudo + nome visitante */}
+                <div className="flex items-center justify-start gap-4 w-[200px]">
                   {visitante && (
                     <Image
                       src={visitante.image}
@@ -72,6 +67,9 @@ const PartidasRodada = ({ partidas, rodada }: Props) => {
                       className="rounded-full"
                     />
                   )}
+                  <p className="font-bold text-left whitespace-nowrap">
+                    {partida.visitante}
+                  </p>
                 </div>
               </div>
 
