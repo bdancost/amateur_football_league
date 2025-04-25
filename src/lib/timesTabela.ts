@@ -223,7 +223,7 @@ export const times1Divisao: Time[] = [
   },
   {
     id: 10,
-    nome: 'Água Quente',
+    nome: 'EC Água Quente',
     imagem: '/assets/clubes/EC Água Quente.jpeg',
     J: 0,
     V: 0,
